@@ -1,0 +1,1 @@
+angular-dnd-campaign-manager
