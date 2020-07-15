@@ -4,12 +4,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MessagesComponent } from './messages/messages.component';
+import { RacesComponent } from './races/races.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessagesComponent
+    MessagesComponent,
+    RacesComponent
   ],
   imports: [
     BrowserModule,
