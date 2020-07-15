@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TableService} from "../table.service"
+import { Table } from "../table";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +9,7 @@ import {TableService} from "../table.service"
 })
 export class DashboardComponent implements OnInit {
 
+  tables : Table[];
   constructor(private table : TableService) { }
 
   ngOnInit(): void {
@@ -15,6 +17,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getTables(): void {
-    
+    this.tables = this.table.getTable()
   }
 }
