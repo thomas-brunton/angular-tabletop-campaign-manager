@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Table } from "./table";
+import { TEST_TABLE } from "./test_table"
 
 @Injectable({
   providedIn: 'root'
@@ -7,4 +8,8 @@ import { Table } from "./table";
 export class TableService {
 
   constructor() { }
+
+  getTable() : Table[] {
+    return TEST_TABLE;
+  }
 }
