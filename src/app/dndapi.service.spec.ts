@@ -1,8 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-
 import { TestBed } from '@angular/core/testing';
-
 import { DndapiService } from './dndapi.service';
+import { isUndefined } from 'util';
 
 describe('DndapiService', () => {
   let service: DndapiService;
@@ -56,4 +55,31 @@ describe('DndapiService', () => {
     //Finally, assert that there are no outstanding requests.
     httpTestingController.verify();
   });
+
+  it('can test for network error', () => {  
+    const emsg = 'simulated network error';
+
+    service.getRaces().subscribe(
+      data => {
+        expect(isUndefined(data)).toEqual(true);
+      },
+      // Shouldn't be used since if there is a network error an empty result is passed from the dndapiservice handleError method
+      // so it gets handled by the about case with the data variable
+      error => {
+        expect(error).toEqual(undefined);
+      }
+    );
+
+    const req = httpTestingController.expectOne('https://www.dnd5eapi.co/api/races');
+
+    // Create mock ErrorEvent, raised when something goes wrong at the network level.
+    // Connection timeout, DNS error, offline, etc
+    const mockError = new ErrorEvent('Network error', {
+      message: emsg,
+    });
+
+    // Respond with mock error
+    req.error(mockError);   
+    }
+  );
 });
