@@ -33,7 +33,7 @@ export class DndapiService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(operation, result?: T) { // Maybe add back in operation = 'operation' if needed later for other http requests
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
       console.error(error);

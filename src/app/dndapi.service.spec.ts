@@ -61,7 +61,7 @@ describe('DndapiService', () => {
 
     service.getRaces().subscribe(
       data => {
-        expect(isUndefined(data)).toEqual(true);
+        expect(data).toBeUndefined();
       },
       // Shouldn't be used since if there is a network error an empty result is passed from the dndapiservice handleError method
       // so it gets handled by the about case with the data variable
