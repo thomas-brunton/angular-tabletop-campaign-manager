@@ -7,13 +7,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RacesComponent } from './races/races.component';
 import { AppRoutingModule } from './app-routing.module';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     MessagesComponent,
-    RacesComponent
+    RacesComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

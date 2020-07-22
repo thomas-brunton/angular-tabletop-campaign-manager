@@ -2,17 +2,7 @@
     <div class="row">
         <p>races works!</p>
     </div>
-    <table class="table table-striped table-bordered table-hover">
-        <caption>List of Races</caption>
-        <thead>
-            <th scope="col">Race Name</th>
-            <th scope="col">Race Url</th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let race of races">
-                <td>{{race.name}}</td>
-                <td>{{race.url}}</td>
-            </tr>
-        </tbody>
-    </table>
 </div>
+
+<app-table [caption]="caption" [headers]="headers" [data]="races">
+</app-table>
