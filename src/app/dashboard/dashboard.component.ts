@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {TableService} from "../table.service"
-import { Table } from "../table";
+import {LayoutService} from "../dashboardLayout.service"
+import { Layout } from "../layout";
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +9,14 @@ import { Table } from "../table";
 })
 export class DashboardComponent implements OnInit {
 
-  tables : Table[];
-  constructor(private table : TableService) { }
+  layout : Layout[];
+  constructor(private layoutService : LayoutService) { }
 
   ngOnInit(): void {
-    this.getTables();
+    this.getLayout();
   }
 
-  getTables(): void {
-    this.tables = this.table.getTable()
+  getLayout(): void {
+    this.layout = this.layoutService.getLayout()
   }
 }
