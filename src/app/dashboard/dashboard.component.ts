@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LayoutService} from "../dashboardLayout.service"
-import { Layout } from "../layout";
+import {LayoutService} from "./dashboardLayout.service"
+import { Layout } from "./layout";
 
 @Component({
   selector: 'app-dashboard',
