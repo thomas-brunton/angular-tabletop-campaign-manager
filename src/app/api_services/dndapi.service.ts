@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MessageService } from './message.service';
+import { MessageService } from '../message.service';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import {ApiService} from "./apiInterface";
 
 @Injectable({
   providedIn: 'root'
 })
-export class DndapiService {
+export class DndapiService implements ApiService{
   private dndapiUrl = 'https://www.dnd5eapi.co/api/';
+  setting = "dnd";
 
   constructor(
     private http: HttpClient,
