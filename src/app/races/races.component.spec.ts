@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { RacesComponent } from './races.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DndapiService } from '../dndapi.service';
+import { DndapiService } from '../api_services/dndapi.service';
 import { Observable } from 'rxjs';
 
 describe('RacesComponent', () => {
