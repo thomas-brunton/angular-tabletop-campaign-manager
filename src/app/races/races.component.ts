@@ -9,7 +9,7 @@ import { ApiSelectorService } from "../api_services/api-selector.service";
   styleUrls: ['./races.component.css']
 })
 export class RacesComponent implements OnInit {
-  public caption = 'List of Races';
+  public caption = 'Race';
   public headers: string[];
   public races: JSON[];
   apiService: ApiService;
