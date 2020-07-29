@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { LayoutService } from './dashboardLayout.service';
 
-describe('TableService', () => {
+describe('LayoutService', () => {
   let service: LayoutService;
 
   beforeEach(() => {
@@ -14,7 +14,7 @@ describe('TableService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should create a table', () =>{
+  it('should create a layout', () =>{
     const testLayout =[
       {position : 1, name : "Race", route : "races"},
       {position : 2, name : "Spells", route : ""}
