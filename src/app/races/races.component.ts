@@ -20,7 +20,7 @@ export class RacesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService=this.apiSelectorService.getApi("dnd")
+    this.apiService=this.apiSelectorService.getApi("vtm");
     this.getRaces();
   }
   
@@ -32,7 +32,7 @@ export class RacesComponent implements OnInit {
           this.headers = Object.keys(race);
           break;
         }
-        //console.log(this.races);
+        console.log(this.races);
       });
   }
 }
