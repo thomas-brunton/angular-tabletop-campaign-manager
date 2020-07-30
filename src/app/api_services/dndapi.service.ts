@@ -22,7 +22,6 @@ export class DndApiService implements ApiService{
   }
 
   private sendRequest(url: string): Observable<JSON[]> {
-    console.log(this.dndapiUrl + url);
     return this.http.get<JSON[]>(this.dndapiUrl + url)
       .pipe(
         tap(() => this.log('fetched ' + url)),

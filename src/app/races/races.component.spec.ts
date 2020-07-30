@@ -33,6 +33,7 @@ describe('RacesComponent', () => {
   });
 
   it('should get values for the races variable after Angular calls ngOnInit', () => {
+    component.setApiSetting('dnd'); //  TODO: Might want to test with the vtm api later?
     component.ngOnInit();
     let temp;
     dndapiService.getRaces()

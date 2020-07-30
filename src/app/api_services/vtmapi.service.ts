@@ -21,7 +21,6 @@ export class VtmApiService implements ApiService{
   }
 
   sendRequest(url : string ) : Observable<JSON[]>{
-    console.log(this.vtmApiUrl+url);
     return this.http.get<JSON[]>(this.vtmApiUrl + url);
   }
 }
