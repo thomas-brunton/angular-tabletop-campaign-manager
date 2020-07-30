@@ -2,12 +2,12 @@ import { TestBed } from '@angular/core/testing';
 
 import { RacesComponent } from './races.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { DndapiService } from '../api_services/dndapi.service';
+import { DndApiService } from '../api_services/dndapi.service';
 import { Observable } from 'rxjs';
 
 describe('RacesComponent', () => {
   let component: RacesComponent;
-  let dndapiService: DndapiService;
+  let dndapiService: DndApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,12 +16,12 @@ describe('RacesComponent', () => {
       // Provide the component-under-test and dependent service
       providers: [
         RacesComponent,
-        { provide: DndapiService, useClass: MockDndApiService }
+        { provide: DndApiService, useClass: MockDndApiService }
       ]
     })
 
     component = TestBed.inject(RacesComponent);
-    dndapiService = TestBed.inject(DndapiService);
+    dndapiService = TestBed.inject(DndApiService);
   });
 
   it('should create', () => {

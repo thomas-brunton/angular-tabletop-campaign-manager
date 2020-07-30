@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from "./apiInterface";
-import { DndapiService } from "./dndapi.service";
+import { DndApiService } from "./dndapi.service";
 import { VtmApiService } from "./vtmapi.service";
 
 @Injectable({
@@ -11,7 +11,7 @@ export class ApiSelectorService {
   VTM = "vtm";
 
   constructor(
-    private dndApiService : DndapiService,
+    private dndApiService : DndApiService,
     private vtmApiService : VtmApiService
   ) { }
 

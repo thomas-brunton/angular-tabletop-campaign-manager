@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { ApiSelectorService } from './api-selector.service';
-import { DndapiService } from "./dndapi.service";
+import { DndApiService } from "./dndapi.service";
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('ApiSelectorService', () => {
   let service: ApiSelectorService;
-  let dndService: DndapiService;
+  let dndService: DndApiService;
   let httpTestingController: HttpTestingController;
   let httpClientModule: HttpClientModule
 
@@ -15,7 +15,7 @@ describe('ApiSelectorService', () => {
       imports: [ HttpClientTestingModule ]
     });
     service = TestBed.inject(ApiSelectorService);
-    dndService = TestBed.inject(DndapiService);
+    dndService = TestBed.inject(DndApiService);
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 

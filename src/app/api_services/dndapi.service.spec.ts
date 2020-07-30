@@ -1,10 +1,10 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { DndapiService } from './dndapi.service';
+import { DndApiService } from './dndapi.service';
 import { isUndefined } from 'util';
 
 describe('DndapiService', () => {
-  let service: DndapiService;
+  let service: DndApiService;
   let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
@@ -12,7 +12,7 @@ describe('DndapiService', () => {
       imports: [ HttpClientTestingModule ]
     });
 
-    service = TestBed.inject(DndapiService)
+    service = TestBed.inject(DndApiService)
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
