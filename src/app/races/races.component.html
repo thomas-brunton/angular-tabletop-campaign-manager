@@ -2,6 +2,13 @@
     <div class="row">
         <p>races works!</p>
     </div>
+    <div class="row">
+        <select class="col-6 form-control" (change)="onSettingChange($event.target.value)">
+            <option selected>dnd</option>
+            <option>vtm</option>
+        </select>
+        <p class="col-6">ApiSetting:{{apiSetting}}:</p>
+    </div>
 </div>
 
 <app-table [caption]="caption" [headers]="headers" [data]="races">

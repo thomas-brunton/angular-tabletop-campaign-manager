@@ -14,17 +14,19 @@ export class RacesComponent implements OnInit {
   public races: JSON[];
   apiService: ApiService;
 
+  public apiSetting = 'dnd';
+
   constructor(
     private apiSelectorService : ApiSelectorService
     ) {
   }
 
   ngOnInit(): void {
-    this.apiService=this.apiSelectorService.getApi("dnd")
     this.getRaces();
   }
   
   getRaces(): void {
+    this.apiService=this.apiSelectorService.getApi(this.apiSetting);
     this.apiService.getRaces()
       .subscribe(races => {
         this.races = races['results'];
@@ -32,7 +34,20 @@ export class RacesComponent implements OnInit {
           this.headers = Object.keys(race);
           break;
         }
-        //console.log(this.races);
+        console.log("Returned races: ", this.races);
       });
+  }
+
+  setApiSetting(newValue) {
+    this.apiSetting = newValue;
+  }
+
+  getApiSetting() {
+    return this.apiSetting;
+  }
+
+  onSettingChange(newValue) {
+    this.apiSetting = newValue;
+    this.getRaces();
   }
 }
