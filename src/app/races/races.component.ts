@@ -22,11 +22,11 @@ export class RacesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService=this.apiSelectorService.getApi(this.apiSetting);
     this.getRaces();
   }
   
   getRaces(): void {
+    this.apiService=this.apiSelectorService.getApi(this.apiSetting);
     this.apiService.getRaces()
       .subscribe(races => {
         this.races = races['results'];
@@ -48,5 +48,6 @@ export class RacesComponent implements OnInit {
 
   onSettingChange(newValue) {
     this.apiSetting = newValue;
+    this.getRaces();
   }
 }

@@ -1,14 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { ApiSelectorService } from './api-selector.service';
 import { DndApiService } from "./dndapi.service";
+import { VtmApiService } from "./vtmapi.service";
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('ApiSelectorService', () => {
   let service: ApiSelectorService;
   let dndService: DndApiService;
+  let vtmService: VtmApiService;
   let httpTestingController: HttpTestingController;
-  let httpClientModule: HttpClientModule
+  let httpClientModule: HttpClientModule;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,6 +18,7 @@ describe('ApiSelectorService', () => {
     });
     service = TestBed.inject(ApiSelectorService);
     dndService = TestBed.inject(DndApiService);
+    vtmService = TestBed.inject(VtmApiService);
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
@@ -28,8 +31,14 @@ describe('ApiSelectorService', () => {
     expect(service.getApi(testSetting)).toBe(dndService);
   });
 
+  it('should pull vtm api', () => {
+    const testSetting = "vtm";
+    expect(service.getApi(testSetting)).toBe(vtmService);
+  });
+
   it("should pull default api (dnd)", () =>{
     const defaultSetting = "default";
     expect(service.getApi(defaultSetting)).toBe(dndService);
   });
+
 });

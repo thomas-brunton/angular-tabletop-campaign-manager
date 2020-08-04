@@ -44,6 +44,13 @@ describe('RacesComponent', () => {
         }
       )
   });
+
+  it('should return correct dnd apiSetting once set', () => {
+    component.onSettingChange('dnd');
+    expect(component.getApiSetting()).toEqual("dnd");
+
+  });
+
 });
 
 class MockDndApiService {
