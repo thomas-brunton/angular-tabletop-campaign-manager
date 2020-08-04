@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <p>races works!</p>
+            <p>races works! {{headers}}</p>
         </div>
     </div>
 </div>
 
-<app-new-entry [caption]="caption" [headers]="headers"></app-new-entry>
+<app-new-entry [caption]="caption" [headers]="headers" (finishedEntryEmitter)="addRace($event)"></app-new-entry>
 
 <app-table [caption]="caption" [headers]="headers" [data]="races"></app-table>

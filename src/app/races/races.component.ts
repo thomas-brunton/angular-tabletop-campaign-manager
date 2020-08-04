@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ApiService } from "../api_services/apiInterface";
 import { TableComponent } from './../table/table.component';
 import { ApiSelectorService } from "../api_services/api-selector.service";
@@ -34,5 +34,9 @@ export class RacesComponent implements OnInit {
         }
         //console.log(this.races);
       });
+  }
+
+  addRace(e: JSON): void {
+    this.races.push(e);
   }
 }

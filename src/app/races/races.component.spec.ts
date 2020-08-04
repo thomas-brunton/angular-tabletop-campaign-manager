@@ -41,7 +41,31 @@ describe('RacesComponent', () => {
           temp = res['results'];
           expect(component.races).toEqual(temp);
         }
-      )
+      );
+  });
+
+  it('should be able to add a race to the races variable', () => {
+    component.ngOnInit();
+    const newRaceObj = {
+      'index': 'test',
+      'name': 'test',
+      'url': 'test'
+    };
+    const expectedOutput: JSON[] = [
+      JSON.parse(JSON.stringify({
+        'index': 'human',
+        'name': 'Name',
+        'url': '/api/races/human'
+      })),
+      JSON.parse(JSON.stringify({
+        'index': 'test',
+        'name': 'test',
+        'url': 'test'
+      })),
+    ];
+    const newRace: JSON = JSON.parse(JSON.stringify(newRaceObj)) 
+    component.addRace(newRace);
+    expect(component.races).toEqual(expectedOutput);
   });
 });
 
