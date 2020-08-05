@@ -1,0 +1,45 @@
+{
+    "index"     : "brujah",
+    "name"      : "Bujah",
+    "faction"   : "Anarch",
+    "archetypes": [
+        {
+            "name"  : "Cancer in the System",
+            "desc"  : "This Kindred exists as a cog in a corrupt system. They may be a night worker for a mortal corporation known for treating its employees like dirt, a staffer in a broken political party, or one of the remaining Brujah in the Camarilla. They work to bring the system down from within, maybe hoping to replace it with something better, but often having the process of rebuilding as the last of their priorities."
+        },
+        {
+            "name"  : "Voice Of The People",
+            "desc"  : "The Brujah have always strived for progress in Kindred society. Many of them were progressives in life and follow the same path in undeath. The voice of the people might be a former feminist activist, eco-warrior, or an anti-capitalist protester who channels their passion into speaking out against the Ventrue and Tore-ador or fomenting political unrest among mortals. Their ambitions may come back to hurt their clan, but sometimes they form the core of revolutionary movements."
+        },
+        {
+            "name"  : "Blood Worshipper",
+            "desc"  : "The Brujah were once considered a High Clan, superior to most and respected by all. Some Brujah still believe their Blood is stronger than that of other clans, and that they have the right to apply their doc-trine on others. Brujah who uphold this form of blood idolatry often come from fundamentalist back-grounds, right-wing groups, and the academic elite."
+        },
+        {
+            "name"  : "Trolling Punk",
+            "desc"  : "Clan Brujah includes many vocal and physical activists who follow the zeitgeist uncritically, reveling in their righteousness. The trolling punk cares about the fight, not the cause. They are an aggressor who provokes confrontation with mi-nority groups, a squatter who just wants to party to piss off the police, or a fourth-wave token “feminist” who spent more of their mortal time attacking other feminists and their allies than coordinating responses to oppression. Short-term action yields massive results, but does not always benefit the Brujah."
+        },
+        {
+            "name"  : "Monster in Disguise",
+            "desc"  : "The Brujah claim there is no clan closer bonded to humanity than their own, which is why they exhibit such fiery passions. But some take it further than that, and strive to live like mortals by keeping up to date with modern culture, forming relationships, and building families. The payoff for this behavior is a startling duality of dream and real-ity. The Beast will not be denied for long, and undead family men and working women must slip away from their fake lives ever so often to avoid seeing red, returning only after they have satiated their dangerous urges."
+        }
+    ],
+    "disciplines":[
+        {
+            "name"  : "Celerity",
+            "url"   : "disciplines/celerity",
+            "desc"  : "Brujah use Celerity to strike fast and escape uprisings they have started. They hunt with it to snatch vessels from the streets, feeding from them savagely, or to rapidly dispose of a mortal before vanishing into the night."
+        },
+        {
+            "name"  : "Potence",
+            "url"   : "disciplines/potence",
+            "desc"  : "Brujah use Potence as a devastating weapon, cutting short any confrontation with destructive finality. Though the clan preaches a connection to humanity, its members often take what they want by force, as it is simpler to hold a kine in place or crack their skull open and drink its insides than to negotiate for a mouthful of blood."
+        },
+        {
+            "name"  : "Precense",
+            "url"   : "disciplines/precense",
+            "desc"  : "Brujah use Presence to win the hearts of the crowd, turn a threatening mob against itself, or send a dangerous opponent fleeing into the night. Brujah intellectuals prefer feeding with Presence to con-vince vessels to give up their blood voluntarily. Other clan members use Presence to terrify their prey, as it apparently adds “an exquisite, bold taste” and fuels the less subtle pow-ers of their curse. "
+        }
+    ],
+    "Bane": "The Blood of the Brujah simmers with barely contained rage, exploding at the slightest provocation. Subtract dice equal to the Bane Severity of the Brujah from any roll to resist fury frenzy. This cannot take the pool below one die"
+}

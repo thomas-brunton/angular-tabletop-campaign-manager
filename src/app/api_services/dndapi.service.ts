@@ -8,7 +8,7 @@ import {ApiService} from "./apiInterface";
 @Injectable({
   providedIn: 'root'
 })
-export class DndapiService implements ApiService{
+export class DndApiService implements ApiService{
   private dndapiUrl = 'https://www.dnd5eapi.co/api/';
   setting = "dnd";
 
