@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ApiService } from "../api_services/apiInterface";
-import { TableComponent } from './../table/table.component';
 import { ApiSelectorService } from "../api_services/api-selector.service";
 
 @Component({
@@ -9,7 +8,7 @@ import { ApiSelectorService } from "../api_services/api-selector.service";
   styleUrls: ['./races.component.css']
 })
 export class RacesComponent implements OnInit {
-  public caption = 'List of Races';
+  public caption = 'Race';
   public headers: string[];
   public races: JSON[];
   apiService: ApiService;
@@ -49,5 +48,9 @@ export class RacesComponent implements OnInit {
   onSettingChange(newValue) {
     this.apiSetting = newValue;
     this.getRaces();
+  }
+
+  addRace(entry: JSON): void {  //adds an entry to races
+    this.races.push(entry);
   }
 }
