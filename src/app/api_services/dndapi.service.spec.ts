@@ -30,14 +30,11 @@ describe('DndapiService', () => {
           "url": "/api/races/human"
         }
       ]
-  };
+    };
 
     // Make the get request
     service.getRaces().subscribe((racesData: any) => {
-      expect(racesData?.count).toBe(1);
-      expect(racesData?.results[0].index).toBe('human');
-      expect(racesData?.results[0].name).toBe('Human');
-      expect(racesData?.results[0].url).toBe('/api/races/human');
+      expect(racesData).toEqual(testData);
     });
 
     // The following `expectOne()` will match the request's URL.
