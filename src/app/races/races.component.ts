@@ -33,7 +33,6 @@ export class RacesComponent implements OnInit {
           this.headers = Object.keys(race);
           break;
         }
-        console.log("Returned races: ", this.races);
       });
   }
 

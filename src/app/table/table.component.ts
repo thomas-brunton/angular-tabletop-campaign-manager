@@ -13,10 +13,23 @@ export class TableComponent implements OnInit {
   @Input()
   caption: string[];
 
+  public rowToDelete: JSON = JSON.parse(JSON.stringify({"index": ""})); //  Add a blank value for index so that the modal doesn't complain that it can't populate the modal when webpage initially loads
+
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  selectRowToDelete(dataRow: JSON): void {
+    this.rowToDelete = dataRow;
+  }
+
+  deleteRow(dataRow: JSON): void {
+    const index = this.data.findIndex(x => x['index'] === dataRow['index']);
+    if(index >= 0) {
+      this.data.splice(index, 1);
+    }
   }
 
 }
