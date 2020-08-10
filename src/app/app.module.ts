@@ -10,6 +10,7 @@ import { RacesComponent } from './races/races.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TableComponent } from './table/table.component';
 import { NewEntryComponent } from './new-entry/new-entry.component';
+import { ClassesComponent } from './classes/classes.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NewEntryComponent } from './new-entry/new-entry.component';
     MessagesComponent,
     RacesComponent,
     TableComponent,
-    NewEntryComponent
+    NewEntryComponent,
+    ClassesComponent
   ],
   imports: [
     BrowserModule,
