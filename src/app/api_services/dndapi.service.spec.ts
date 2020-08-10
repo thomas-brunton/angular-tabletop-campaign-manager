@@ -53,6 +53,28 @@ describe('DndapiService', () => {
     httpTestingController.verify();
   });
 
+  it('should get classes data', () => {
+    const testData = {
+      "count": 1,
+      "results": [
+        {
+          "index": "barbarian",
+          "name": "Barbarian",
+          "url": "/api/classes/barbarian"
+        }
+      ]
+    };
+
+    service.getClasses().subscribe((classesData: any) => {
+      expect(classesData).toEqual(testData);
+    });
+
+    const req = httpTestingController.expectOne('https://www.dnd5eapi.co/api/classes');
+    expect(req.request.method).toEqual('GET');
+    req.flush(testData);
+    httpTestingController.verify();
+  });
+
   it('can test for network error', () => {  
     const emsg = 'simulated network error';
 
