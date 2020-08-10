@@ -56,6 +56,41 @@ describe('DndapiService', () => {
     httpTestingController.verify();
   });
 
+  //testing for getAbilities function
+  it("should get spell data", ()=> {
+    const testData = {
+      "count" : 1,
+      "results" : [
+        {
+          "index": "acid-arrow",
+          "name": "Acid Arrow",
+          "url": "/api/spells/acid-arrow"
+        }
+      ]
+    }
+
+    service.getAbilities().subscribe((abilitiesData: any) => {
+      expect(abilitiesData?.count).toBe(1);
+      expect(abilitiesData?.results[0].index).toBe(testData.results[0].index);
+      expect(abilitiesData?.results[0].name).toBe(testData.results[0].name);
+      expect(abilitiesData?.results[0].url).toBe(testData.results[0].url);
+    });
+
+        // The following `expectOne()` will match the request's URL.
+    // If no request or multiple request matched that URL
+    // `expectOne()` would throw.
+    const req = httpTestingController.expectOne('https://www.dnd5eapi.co/api/races');
+
+    // Assert that the request is a GET.
+    expect(req.request.method).toEqual('GET');
+
+    // Response with mock data, causing Observable to resolve.
+    // Subscribe callback asserts that correct data was returned.
+    req.flush(testData);
+
+    //Finally, assert that there are no outstanding requests.
+    httpTestingController.verify();
+  });
   it('can test for network error', () => {  
     const emsg = 'simulated network error';
 
