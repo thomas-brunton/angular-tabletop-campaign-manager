@@ -24,6 +24,10 @@ export class DndApiService implements ApiService{
     return this.sendRequest('spells');
   }
 
+  getClasses(): Observable<JSON[]> {
+    return this.sendRequest('classes');
+  }
+
   private sendRequest(url: string): Observable<JSON[]> {
     return this.http.get<JSON[]>(this.dndapiUrl + url)
       .pipe(
