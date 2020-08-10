@@ -55,7 +55,7 @@ describe('RacesComponent', () => {
     const expectedOutput: JSON[] = [
       JSON.parse(JSON.stringify({
         'index': 'human',
-        'name': 'Name',
+        'name': 'Human',
         'url': '/api/races/human'
       })),
       JSON.parse(JSON.stringify({
@@ -72,7 +72,6 @@ describe('RacesComponent', () => {
   it('should return correct dnd apiSetting once set', () => {
     component.onSettingChange('dnd');
     expect(component.getApiSetting()).toEqual("dnd");
-
   });
 
 });
@@ -83,13 +82,13 @@ class MockDndApiService {
     'results': [
       {
         'index': 'human',
-        'name': 'Name',
+        'name': 'Human',
         'url': '/api/races/human'
       }
     ]
   };
   // races is test in string form for JSON.parse()
-  races = '{"count": 1,"results": [{"index": "human", "name": "Name", "url": "/api/races/human"}]}';
+  races = '{"count": 1,"results": [{"index": "human", "name": "Human", "url": "/api/races/human"}]}';
   
   testArray:JSON[] = JSON.parse(this.races);
 
