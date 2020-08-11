@@ -44,16 +44,16 @@ describe('AbilitiesComponent', () => {
 
   it("Should add an ability with corresponding data", () => {
     component.setApiSetting("vtm");
-    console.log(component.apiSetting);
+    //console.log(component.apiSetting);
     component.ngOnInit();
-    console.log(component.abilities);
+    //console.log(component.abilities);
     let testData = 
         {
           "index" :"one_with_the_blade", 
           "name" : "One With The Blade", 
           "url" :"powers/one_with_the_blade"
         };
-    const outPutData = {
+    const expectedOutPutData = {
       "results": [
         {
           'index' : "bound_famulus",
@@ -67,7 +67,7 @@ describe('AbilitiesComponent', () => {
         }
       ]
     };
-    const expectedOutput: JSON[] = JSON.parse(JSON.stringify(outPutData.results));
+    const expectedOutput: JSON[] = JSON.parse(JSON.stringify(expectedOutPutData.results));
     
     let testDataArray = JSON.stringify(testData);
     let testJSON = JSON.parse(testDataArray);
