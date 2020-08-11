@@ -31,9 +31,7 @@ export class AbilitiesComponent implements OnInit {
           this.headers = Object.keys(ability);
           break;
         }
-        console.log("Returned ability: ", this.abilities);
       });
-      console.log(this.caption);
   }
 
   setApiSetting(api){
