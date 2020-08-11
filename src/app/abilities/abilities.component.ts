@@ -12,7 +12,7 @@ export class AbilitiesComponent implements OnInit {
   public headers: string[];
   public abilities: JSON[];
   apiService: ApiService;
-
+  
   public apiSetting = 'dnd';
 
   constructor(private apiSelectorService : ApiSelectorService) {

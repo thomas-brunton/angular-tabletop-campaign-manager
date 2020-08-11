@@ -18,7 +18,7 @@ describe('RacesComponent', () => {
         RacesComponent,
         { provide: DndApiService, useClass: MockDndApiService }
       ]
-    })
+    });
 
     component = TestBed.inject(RacesComponent);
     dndapiService = TestBed.inject(DndApiService);

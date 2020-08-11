@@ -79,7 +79,7 @@ describe('DndapiService', () => {
         // The following `expectOne()` will match the request's URL.
     // If no request or multiple request matched that URL
     // `expectOne()` would throw.
-    const req = httpTestingController.expectOne('https://www.dnd5eapi.co/api/races');
+    const req = httpTestingController.expectOne('https://www.dnd5eapi.co/api/spells');
 
     // Assert that the request is a GET.
     expect(req.request.method).toEqual('GET');
