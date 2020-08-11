@@ -19,6 +19,9 @@ export class VtmApiService implements ApiService{
   getRaces() : Observable<JSON[]> {
     return this.sendRequest('clans/clans.json');
   }
+  getAbilities() : Observable <JSON[]> {
+    return this.sendRequest('powers/powers.json');
+  }
 
   sendRequest(url : string ) : Observable<JSON[]>{
     return this.http.get<JSON[]>(this.vtmApiUrl + url);

@@ -1,0 +1,36 @@
+{
+    "count" : 100,
+    "results": [
+        {
+            "index" : "bond_famulus",
+            "name"  : "Bond Famulus",
+            "url"   : "powers/bond_famulus"
+        },
+        {
+            "index" : "sense_the_beast",
+            "name"  : "Sense The Beast",
+            "url"   : "powers/sense_the_beast"
+        },
+        {
+            "index" : "feral_whispers",
+            "name"  : "Feral Whispers",
+            "url"   : "powers/feral_whispers"
+        },
+        {
+            "index" : "animal_succulence",
+            "name"  : "Animal Succulence",
+            "url"   : "powers/animal_succulence"
+        },
+        {
+            "index" : "quell_the_beast",
+            "name"  : "Quell The Beast",
+            "url"   : "powers/quell_the_beast"
+        },
+        {
+            "index" : "unliving_hive",
+            "name"  : "Unliving Hive",
+            "url"   : "powers/unliving_hive"
+        }
+
+    ]
+}
