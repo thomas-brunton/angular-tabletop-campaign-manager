@@ -8,8 +8,11 @@
             <th *ngFor="let header of headers" scope="col">{{header}}</th>
         </thead>
         <tbody>
-            <tr *ngFor="let dataRow of data">
-                <td *ngFor="let header of headers">{{dataRow[header]}}</td>
+            <tr *ngFor="let dataRow of data">     
+                <td *ngFor="let header of headers">
+                    <app-table-detail [data] = dataRow></app-table-detail>
+                    {{dataRow[header]}}
+                </td>
                 <td><button class="btn btn-danger" (click)="selectRowToDelete(dataRow)" data-toggle="modal" data-target="#deleteRow">Delete {{dataRow['index']}}</button></td>
             </tr>
         </tbody>

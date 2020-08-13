@@ -9,7 +9,7 @@ import {ApiService} from "./apiInterface";
   providedIn: 'root'
 })
 export class DndApiService implements ApiService{
-  private dndapiUrl = 'https://www.dnd5eapi.co/api/';
+  private dndapiUrl = 'https://www.dnd5eapi.co';
   setting = "dnd";
 
   constructor(
@@ -18,10 +18,14 @@ export class DndApiService implements ApiService{
   ) { }
 
   getRaces(): Observable<JSON[]> {
-    return this.sendRequest('races');
+    return this.sendRequest('/api/races');
   }
   getAbilities() : Observable <JSON[]> {
-    return this.sendRequest('spells');
+    return this.sendRequest('/api/spells');
+  }
+
+  getDetails(url : string) : Observable <JSON[]> {
+    return this.sendRequest(url);
   }
 
   private sendRequest(url: string): Observable<JSON[]> {
