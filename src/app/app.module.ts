@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TableComponent } from './table/table.component';
 import { NewEntryComponent } from './new-entry/new-entry.component';
 import { AbilitiesComponent } from './abilities/abilities.component';
+import { ClassesComponent } from './classes/classes.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AbilitiesComponent } from './abilities/abilities.component';
     RacesComponent,
     TableComponent,
     NewEntryComponent,
-    AbilitiesComponent
+    AbilitiesComponent,
+    ClassesComponent
   ],
   imports: [
     BrowserModule,

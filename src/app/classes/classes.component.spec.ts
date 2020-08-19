@@ -1,26 +1,25 @@
-import { TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RacesComponent } from './races.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ClassesComponent } from './classes.component';
 import { DndApiService } from '../api_services/dndapi.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Observable } from 'rxjs';
 
-describe('RacesComponent', () => {
-  let component: RacesComponent;
+describe('ClassesComponent', () => {
+  let component: ClassesComponent;
   let dndapiService: DndApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ RacesComponent ],
+      declarations: [ ClassesComponent ],
       imports: [ HttpClientTestingModule ],
-      // Provide the component-under-test and dependent service
       providers: [
-        RacesComponent,
+        ClassesComponent,
         { provide: DndApiService, useClass: MockDndApiService }
       ]
     });
 
-    component = TestBed.inject(RacesComponent);
+    component = TestBed.inject(ClassesComponent);
     dndapiService = TestBed.inject(DndApiService);
   });
 
@@ -28,35 +27,35 @@ describe('RacesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should not have a value for the races variable after construction', () => {
-    expect(component.races).toBeUndefined();
+  it('should not have a value for the tableTopClasses variable after construction', () => {
+    expect(component.tableTopClasses).toBeUndefined();
   });
 
-  it('should get values for the races variable after Angular calls ngOnInit', () => {
+  it('should get values for the tableTopClasses variable after Angular calls ngOnInit', () => {
     component.setApiSetting('dnd'); //  TODO: Might want to test with the vtm api later?
     component.ngOnInit();
     let temp;
-    dndapiService.getRaces()
+    dndapiService.getClasses()
       .subscribe(
         res => {
           temp = res['results'];
-          expect(component.races).toEqual(temp);
+          expect(component.tableTopClasses).toEqual(temp);
         }
       );
   });
 
-  it('should be able to add a race to the races variable', () => {
+  it('should be able to add a tableTopClass to the tableTopClasses variable', () => {
     component.ngOnInit();
-    const newRaceObj = {
+    const newClassObj = {
       'index': 'test',
       'name': 'test',
       'url': 'test'
     };
     const expectedOutput: JSON[] = [
       JSON.parse(JSON.stringify({
-        'index': 'human',
-        'name': 'Human',
-        'url': '/api/races/human'
+        'index': 'barbarian',
+        'name': 'Barbarian',
+        'url': '/api/classes/barbarian'
       })),
       JSON.parse(JSON.stringify({
         'index': 'test',
@@ -64,16 +63,15 @@ describe('RacesComponent', () => {
         'url': 'test'
       })),
     ];
-    const newRace: JSON = JSON.parse(JSON.stringify(newRaceObj)) 
-    component.addRace(newRace);
-    expect(component.races).toEqual(expectedOutput);
+    const newClass: JSON = JSON.parse(JSON.stringify(newClassObj)) 
+    component.addClass(newClass);
+    expect(component.tableTopClasses).toEqual(expectedOutput);
   });
 
   it('should return correct dnd apiSetting once set', () => {
     component.onSettingChange('dnd');
     expect(component.getApiSetting()).toEqual("dnd");
   });
-
 });
 
 class MockDndApiService {
@@ -81,14 +79,14 @@ class MockDndApiService {
     'count': 1,
     'results': [
       {
-        'index': 'human',
-        'name': 'Human',
-        'url': '/api/races/human'
+        'index': 'barbarian',
+        'name': 'Barbarian',
+        'url': '/api/classes/barbarian'
       }
     ]
   };
-  // races is test in string form for JSON.parse()
-  races = '{"count": 1,"results": [{"index": "human", "name": "Human", "url": "/api/races/human"}]}';
+  // classes is test in string form for JSON.parse()
+  races = '{"count": 1,"results": [{"index": "barbarian", "name": "Barbarian", "url": "/api/classes/barbarian"}]}';
   
   testArray:JSON[] = JSON.parse(this.races);
 
@@ -97,7 +95,7 @@ class MockDndApiService {
     observer.complete();
   }));
 
-  getRaces(): Observable<JSON[]> {
+  getClasses(): Observable<JSON[]> {
     return this.observable;
   }
 }
