@@ -1,12 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AbilitiesComponent } from './abilities.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import { VtmApiService } from "../api_services/vtmapi.service";
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { VtmApiService } from '../api_services/vtmapi.service';
 import { Observable } from 'rxjs';
 
 describe('AbilitiesComponent', () => {
   let component: AbilitiesComponent;
-  let vtmApiService : VtmApiService;
+  let vtmApiService: VtmApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -25,12 +25,12 @@ describe('AbilitiesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("Should not have abilities on construction", () => {
+  it('Should not have abilities on construction', () => {
     expect(component.abilities).toBeUndefined();
   });
 
-  it("Should get spells once angular runs ngOnInit", () => {
-    component.setApiSetting("vtm");
+  it('Should get spells once angular runs ngOnInit', () => {
+    component.setApiSetting('vtm');
     component.ngOnInit();
     let temp;
     vtmApiService.getAbilities()
@@ -42,53 +42,53 @@ describe('AbilitiesComponent', () => {
       );
   });
 
-  it("Should add an ability with corresponding data", () => {
-    component.setApiSetting("vtm");
-    //console.log(component.apiSetting);
+  it('Should add an ability with corresponding data', () => {
+    component.setApiSetting('vtm');
+    // console.log(component.apiSetting);
     component.ngOnInit();
-    //console.log(component.abilities);
-    let testData = 
+    // console.log(component.abilities);
+    const testData =
         {
-          "index" :"one_with_the_blade", 
-          "name" : "One With The Blade", 
-          "url" :"powers/one_with_the_blade"
+          index : 'one_with_the_blade',
+          name : 'One With The Blade',
+          url : 'powers/one_with_the_blade'
         };
     const expectedOutPutData = {
-      "results": [
+      results: [
         {
-          'index' : "bound_famulus",
-          "name"  : "Bond Famulus",
-          "url"   : "powers/bond_famulus"
+          index : 'bound_famulus',
+          name  : 'Bond Famulus',
+          url   : 'powers/bond_famulus'
         },
-        { 
-          'index' : "one_with_the_blade", 
-          "name" : "One With The Blade", 
-          "url" :"powers/one_with_the_blade"
+        {
+          index : 'one_with_the_blade',
+          name : 'One With The Blade',
+          url : 'powers/one_with_the_blade'
         }
       ]
     };
     const expectedOutput: JSON[] = JSON.parse(JSON.stringify(expectedOutPutData.results));
-    
-    let testDataArray = JSON.stringify(testData);
-    let testJSON = JSON.parse(testDataArray);
+
+    const testDataArray = JSON.stringify(testData);
+    const testJSON = JSON.parse(testDataArray);
 
     component.addAbility(testJSON);
     expect(component.abilities).toEqual(expectedOutput);
 
-  })
+  });
 });
 
 class MockVtmApiService{
   test = {
-    'count' : 1,
-    'results' : [
+    count : 1,
+    results : [
       {
-        'index' : "bound_famulus",
-        "name"  : "Bond Famulus",
-        "url"   : "powers/bond_famulus"
+        index : 'bound_famulus',
+        name  : 'Bond Famulus',
+        url   : 'powers/bond_famulus'
       }
     ]
-  }
+  };
   powers = JSON.stringify(this.test);
 
   powersArray: JSON[] = JSON.parse(this.powers);

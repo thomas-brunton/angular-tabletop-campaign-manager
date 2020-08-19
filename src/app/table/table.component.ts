@@ -13,7 +13,7 @@ export class TableComponent implements OnInit {
   @Input()
   caption: string[];
 
-  public rowToDelete: JSON = JSON.parse(JSON.stringify({"index": ""})); //  Add a blank value for index so that the modal doesn't complain that it can't populate the modal when webpage initially loads
+  public rowToDelete: JSON = JSON.parse(JSON.stringify({index: ''})); //  Add a blank value for index so that the modal doesn't complain that it can't populate the modal when webpage initially loads
 
   constructor() {
   }
@@ -27,7 +27,7 @@ export class TableComponent implements OnInit {
 
   deleteRow(dataRow: JSON): void {
     const index = this.data.findIndex(x => x['index'] === dataRow['index']);
-    if(index >= 0) {
+    if (index >= 0) {
       this.data.splice(index, 1);
     }
   }

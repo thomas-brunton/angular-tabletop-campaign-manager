@@ -48,49 +48,49 @@ describe('RacesComponent', () => {
   it('should be able to add a race to the races variable', () => {
     component.ngOnInit();
     const newRaceObj = {
-      'index': 'test',
-      'name': 'test',
-      'url': 'test'
+      index: 'test',
+      name: 'test',
+      url: 'test'
     };
     const expectedOutput: JSON[] = [
       JSON.parse(JSON.stringify({
-        'index': 'human',
-        'name': 'Human',
-        'url': '/api/races/human'
+        index: 'human',
+        name: 'Human',
+        url: '/api/races/human'
       })),
       JSON.parse(JSON.stringify({
-        'index': 'test',
-        'name': 'test',
-        'url': 'test'
+        index: 'test',
+        name: 'test',
+        url: 'test'
       })),
     ];
-    const newRace: JSON = JSON.parse(JSON.stringify(newRaceObj)) 
+    const newRace: JSON = JSON.parse(JSON.stringify(newRaceObj));
     component.addRace(newRace);
     expect(component.races).toEqual(expectedOutput);
   });
 
   it('should return correct dnd apiSetting once set', () => {
     component.onSettingChange('dnd');
-    expect(component.getApiSetting()).toEqual("dnd");
+    expect(component.getApiSetting()).toEqual('dnd');
   });
 
 });
 
 class MockDndApiService {
   test = {
-    'count': 1,
-    'results': [
+    count: 1,
+    results: [
       {
-        'index': 'human',
-        'name': 'Human',
-        'url': '/api/races/human'
+        index: 'human',
+        name: 'Human',
+        url: '/api/races/human'
       }
     ]
   };
   // races is test in string form for JSON.parse()
   races = '{"count": 1,"results": [{"index": "human", "name": "Human", "url": "/api/races/human"}]}';
-  
-  testArray:JSON[] = JSON.parse(this.races);
+
+  testArray: JSON[] = JSON.parse(this.races);
 
   observable = new Observable<JSON[]>((observer => {
     observer.next(this.testArray);
