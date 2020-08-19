@@ -21,7 +21,7 @@ import { ClassesComponent } from './classes/classes.component';
     RacesComponent,
     TableComponent,
     NewEntryComponent,
-    AbilitiesComponent
+    AbilitiesComponent,
     ClassesComponent
   ],
   imports: [
