@@ -12,6 +12,7 @@ import { TableComponent } from './table/table.component';
 import { NewEntryComponent } from './new-entry/new-entry.component';
 import { AbilitiesComponent } from './abilities/abilities.component';
 import { TableDetailComponent } from './table-detail/table-detail.component';
+import { TableDetailViewComponent } from './table-detail-view/table-detail-view.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TableDetailComponent } from './table-detail/table-detail.component';
     TableComponent,
     NewEntryComponent,
     AbilitiesComponent,
-    TableDetailComponent
+    TableDetailComponent,
+    TableDetailViewComponent
   ],
   imports: [
     BrowserModule,
