@@ -52,7 +52,7 @@ export class TableDetailComponent implements OnInit {
     this.apiService = this.apiSelectorService.getApi(this.apiSetting);
     this.apiService.getDetails(this.url).subscribe( details => {
       this.details = details;
-      })
-    console.log(this.details);
+      this.headers= Object.keys(this.details);
+    })
   }
 }
