@@ -12,6 +12,7 @@ export class TableDetailViewComponent implements OnInit {
   public set data(value){
     if(value === undefined) { return }  //  The setting is sometimes called with a value of undefined first for some reason
     this._data = value;
+    this.name=this._data["name"];
     console.log(this._data);
   }
   public get data(){
@@ -27,6 +28,9 @@ export class TableDetailViewComponent implements OnInit {
   public get headers(){
     return this._headers;
   }
+
+  public name : string;
+
   constructor() { }
 
   ngOnInit(): void {
