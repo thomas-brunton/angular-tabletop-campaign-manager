@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {TableComponent} from "./../../table.component";
 
 @Component({
   selector: 'app-table-detail-view',
@@ -31,9 +32,15 @@ export class TableDetailViewComponent implements OnInit {
 
   public name : string;
 
-  constructor() { }
+  constructor(
+    private tableComponent : TableComponent
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  deleteRow(entry: JSON): void {
+    this.tableComponent.deleteRow(entry);
   }
 
 }
