@@ -1,3 +1,3 @@
-export interface newEntry {
+export interface NewEntry {
     [key: string]: any;
 }

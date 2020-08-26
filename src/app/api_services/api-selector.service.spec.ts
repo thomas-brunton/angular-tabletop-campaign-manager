@@ -3,14 +3,12 @@ import { ApiSelectorService } from './api-selector.service';
 import { DndApiService } from './dndapi.service';
 import { VtmApiService } from './vtmapi.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClientModule } from '@angular/common/http';
 
 describe('ApiSelectorService', () => {
   let service: ApiSelectorService;
   let dndService: DndApiService;
   let vtmService: VtmApiService;
   let httpTestingController: HttpTestingController;
-  let httpClientModule: HttpClientModule;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

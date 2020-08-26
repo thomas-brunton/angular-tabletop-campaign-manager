@@ -26,7 +26,7 @@ export class AbilitiesComponent implements OnInit {
     this.apiService = this.apiSelectorService.getApi(this.apiSetting);
     this.apiService.getAbilities()
       .subscribe(abilities => {
-        this.abilities = abilities["results"];
+        this.abilities = abilities['results'];
         for (const ability of this.abilities) {
           this.headers = Object.keys(ability);
           break;

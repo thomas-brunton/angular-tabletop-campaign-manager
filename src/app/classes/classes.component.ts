@@ -15,7 +15,7 @@ export class ClassesComponent implements OnInit {
 
   public apiSetting = 'dnd';
 
-  constructor(private apiSelectorService : ApiSelectorService) { }
+  constructor(private apiSelectorService: ApiSelectorService) { }
 
   ngOnInit(): void {
     this.getClasses();
@@ -26,7 +26,7 @@ export class ClassesComponent implements OnInit {
     this.apiService.getClasses()
       .subscribe(tableTopClasses => {
         this.tableTopClasses = tableTopClasses['results'];
-        for(let tableTopClass of this.tableTopClasses) {
+        for (const tableTopClass of this.tableTopClasses) {
           this.headers = Object.keys(tableTopClass);
           break;
         }

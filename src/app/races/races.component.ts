@@ -28,7 +28,7 @@ export class RacesComponent implements OnInit {
     this.apiService = this.apiSelectorService.getApi(this.apiSetting);
     this.apiService.getRaces()
       .subscribe(races => {
-        this.races = races["results"];
+        this.races = races['results'];
         for (const race of this.races) {
           this.headers = Object.keys(race);
           break;
