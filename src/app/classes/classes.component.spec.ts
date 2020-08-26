@@ -47,48 +47,48 @@ describe('ClassesComponent', () => {
   it('should be able to add a tableTopClass to the tableTopClasses variable', () => {
     component.ngOnInit();
     const newClassObj = {
-      'index': 'test',
-      'name': 'test',
-      'url': 'test'
+      index: 'test',
+      name: 'test',
+      url: 'test'
     };
     const expectedOutput: JSON[] = [
       JSON.parse(JSON.stringify({
-        'index': 'barbarian',
-        'name': 'Barbarian',
-        'url': '/api/classes/barbarian'
+        index: 'barbarian',
+        name: 'Barbarian',
+        url: '/api/classes/barbarian'
       })),
       JSON.parse(JSON.stringify({
-        'index': 'test',
-        'name': 'test',
-        'url': 'test'
+        index: 'test',
+        name: 'test',
+        url: 'test'
       })),
     ];
-    const newClass: JSON = JSON.parse(JSON.stringify(newClassObj)) 
+    const newClass: JSON = JSON.parse(JSON.stringify(newClassObj));
     component.addClass(newClass);
     expect(component.tableTopClasses).toEqual(expectedOutput);
   });
 
   it('should return correct dnd apiSetting once set', () => {
     component.onSettingChange('dnd');
-    expect(component.getApiSetting()).toEqual("dnd");
+    expect(component.getApiSetting()).toEqual('dnd');
   });
 });
 
 class MockDndApiService {
   test = {
-    'count': 1,
-    'results': [
+    count: 1,
+    results: [
       {
-        'index': 'barbarian',
-        'name': 'Barbarian',
-        'url': '/api/classes/barbarian'
+        index: 'barbarian',
+        name: 'Barbarian',
+        url: '/api/classes/barbarian'
       }
     ]
   };
   // classes is test in string form for JSON.parse()
   races = '{"count": 1,"results": [{"index": "barbarian", "name": "Barbarian", "url": "/api/classes/barbarian"}]}';
-  
-  testArray:JSON[] = JSON.parse(this.races);
+
+  testArray: JSON[] = JSON.parse(this.races);
 
   observable = new Observable<JSON[]>((observer => {
     observer.next(this.testArray);
