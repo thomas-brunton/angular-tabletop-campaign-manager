@@ -1,20 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ApiService } from "../../api_services/apiInterface";
-import { ApiSelectorService } from "../../api_services/api-selector.service";
+import { ApiService } from '../../api_services/apiInterface';
+import { ApiSelectorService } from '../../api_services/api-selector.service';
 
 @Component({
   selector: 'app-table-detail',
   templateUrl: './table-detail.component.html',
   styleUrls: ['./table-detail.component.css']
 })
-export class TableDetailComponent implements OnInit { 
-  
+export class TableDetailComponent implements OnInit {
+
   private _data: JSON;
 
 
   @Input() // for data to be set on change
   public set data(value) {
-    if(value === undefined) { return }  //  The setting is sometimes called with a value of undefined first for some reason
+    if (value === undefined) { return; }  //  The setting is sometimes called with a value of undefined first for some reason
 
     this._data = value;
     this.setUrl(this._data);
@@ -25,34 +25,34 @@ export class TableDetailComponent implements OnInit {
     return this._data;
   }
   url: string;
-  title : string;
+  title: string;
   headers: string[];
   details: JSON[];
 
-  apiService : ApiService;
+  apiService: ApiService;
   apiSetting = 'dnd';
 
   constructor(
-    private apiSelectorService : ApiSelectorService
+    private apiSelectorService: ApiSelectorService
   ) { }
 
   ngOnInit(): void {
   }
 
 
-  setUrl (dataRow: JSON): void {
-    this.url = dataRow['url'];
-  }
-  
-  setTitle (dataRow: JSON) : void {
-    this.title = dataRow["name"] + " details";
+  setUrl(dataRow: JSON): void {
+    this.url = dataRow["url"];
   }
 
-  getDetailsData() : void {
+  setTitle(dataRow: JSON): void {
+    this.title = dataRow["name"] + ' details';
+  }
+
+  getDetailsData(): void {
     this.apiService = this.apiSelectorService.getApi(this.apiSetting);
     this.apiService.getDetails(this.url).subscribe( details => {
       this.details = details;
-      this.headers= Object.keys(this.details);
-    })
+      this.headers = Object.keys(this.details);
+    });
   }
 }

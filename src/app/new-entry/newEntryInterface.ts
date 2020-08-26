@@ -1,3 +1,3 @@
 export interface newEntry {
-    [key: string]: any
+    [key: string]: any;
 }

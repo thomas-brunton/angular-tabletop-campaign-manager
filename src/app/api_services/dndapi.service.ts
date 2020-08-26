@@ -3,14 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../message.service';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import {ApiService} from "./apiInterface";
+import {ApiService} from './apiInterface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DndApiService implements ApiService{
   private dndapiUrl = 'https://www.dnd5eapi.co';
-  setting = "dnd";
+  setting = 'dnd';
 
   constructor(
     private http: HttpClient,
@@ -20,11 +20,11 @@ export class DndApiService implements ApiService{
   getRaces(): Observable<JSON[]> {
     return this.sendRequest('/api/races');
   }
-  getAbilities() : Observable <JSON[]> {
+  getAbilities(): Observable <JSON[]> {
     return this.sendRequest('/api/spells');
   }
 
-  getDetails(url : string) : Observable <JSON[]> {
+  getDetails(url: string): Observable <JSON[]> {
     return this.sendRequest(url);
   }
 
@@ -52,7 +52,7 @@ export class DndApiService implements ApiService{
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
-    }
+    };
   }
 
   private log(message: string) {

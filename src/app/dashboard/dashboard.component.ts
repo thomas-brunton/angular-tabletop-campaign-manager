@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LayoutService} from "./dashboardLayout.service"
-import { Layout } from "./layout";
+import {LayoutService} from './dashboardLayout.service';
+import { Layout } from './layout';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,14 +9,14 @@ import { Layout } from "./layout";
 })
 export class DashboardComponent implements OnInit {
 
-  layout : Layout[];
-  constructor(private layoutService : LayoutService) { }
+  layout: Layout[];
+  constructor(private layoutService: LayoutService) { }
 
   ngOnInit(): void {
     this.getLayout();
   }
 
   getLayout(): void {
-    this.layout = this.layoutService.getLayout()
+    this.layout = this.layoutService.getLayout();
   }
 }

@@ -12,7 +12,7 @@ describe('DndapiService', () => {
       imports: [ HttpClientTestingModule ]
     });
 
-    service = TestBed.inject(DndApiService)
+    service = TestBed.inject(DndApiService);
     httpTestingController = TestBed.inject(HttpTestingController);
   });
 
@@ -22,12 +22,12 @@ describe('DndapiService', () => {
 
   it('should get races data', () => {
     const testData = {
-      "count": 1,
-      "results": [
+      count: 1,
+      results: [
         {
-          "index": "human",
-          "name": "Human",
-          "url": "/api/races/human"
+          index: 'human',
+          name: 'Human',
+          url: '/api/races/human'
         }
       ]
     };
@@ -49,22 +49,22 @@ describe('DndapiService', () => {
     // Subscribe callback asserts that correct data was returned.
     req.flush(testData);
 
-    //Finally, assert that there are no outstanding requests.
+    // Finally, assert that there are no outstanding requests.
     httpTestingController.verify();
   });
 
-  //testing for getAbilities function
-  it("should get spell data", ()=> {
+  // testing for getAbilities function
+  it('should get spell data', () => {
     const testData = {
-      "count" : 1,
-      "results" : [
+      count : 1,
+      results : [
         {
-          "index": "acid-arrow",
-          "name": "Acid Arrow",
-          "url": "/api/spells/acid-arrow"
+          index: 'acid-arrow',
+          name: 'Acid Arrow',
+          url: '/api/spells/acid-arrow'
         }
       ]
-    }
+    };
 
     service.getAbilities().subscribe((abilitiesData: any) => {
       expect(abilitiesData?.count).toBe(1);
@@ -85,10 +85,10 @@ describe('DndapiService', () => {
     // Subscribe callback asserts that correct data was returned.
     req.flush(testData);
 
-    //Finally, assert that there are no outstanding requests.
+    // Finally, assert that there are no outstanding requests.
     httpTestingController.verify();
   });
-  it('can test for network error', () => {  
+  it('can test for network error', () => {
     const emsg = 'simulated network error';
 
     service.getRaces().subscribe(
@@ -111,7 +111,7 @@ describe('DndapiService', () => {
     });
 
     // Respond with mock error
-    req.error(mockError);   
+    req.error(mockError);
     }
   );
 });

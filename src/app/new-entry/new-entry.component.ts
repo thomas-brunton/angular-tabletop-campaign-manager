@@ -12,7 +12,7 @@ export class NewEntryComponent implements OnInit {
   private _headers: string[];
   @Input()
   public set headers(value) {
-    if(value === undefined) { return }  //  The setting is sometimes called with a value of undefined first for some reason
+    if (value === undefined) { return; }  //  The setting is sometimes called with a value of undefined first for some reason
 
     this._headers = value;
     this.setupFormControls(this._headers);
@@ -36,8 +36,8 @@ export class NewEntryComponent implements OnInit {
   ngOnInit(): void {}
 
   private setupFormControls(headers: string[]): void {
-    for(let header of headers) {
-      this.newEntry[header] = new FormControl("", Validators.required); //  First parameter is initial value of the form control while the next value is the validators for the control
+    for (const header of headers) {
+      this.newEntry[header] = new FormControl('', Validators.required); //  First parameter is initial value of the form control while the next value is the validators for the control
     }
 
     this.newEntryForm = new FormGroup(this.newEntry);
@@ -45,10 +45,10 @@ export class NewEntryComponent implements OnInit {
   }
 
   onSubmit() {
-    for(let header of this._headers) {
+    for (const header of this._headers) {
       this.finishedEntry[header] = this.newEntryForm.controls[header].value;
     }
-    let finishedEntryJSON: JSON = JSON.parse(JSON.stringify(this.finishedEntry)); //  Stringify then parse the finishedEntry object to create a variable of type JSON
+    const finishedEntryJSON: JSON = JSON.parse(JSON.stringify(this.finishedEntry)); //  Stringify then parse the finishedEntry object to create a variable of type JSON
 
     this.finishedEntryEmitter.emit(finishedEntryJSON);
   }

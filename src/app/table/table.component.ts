@@ -32,5 +32,4 @@ export class TableComponent implements OnInit {
       this.data.splice(index, 1);
     }
   }
-
 }

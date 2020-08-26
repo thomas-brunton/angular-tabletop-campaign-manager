@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { ApiService } from "../api_services/apiInterface";
-import { ApiSelectorService } from "../api_services/api-selector.service";
+import { ApiService } from '../api_services/apiInterface';
+import { ApiSelectorService } from '../api_services/api-selector.service';
 
 @Component({
   selector: 'app-abilities',
@@ -12,22 +12,22 @@ export class AbilitiesComponent implements OnInit {
   public headers: string[];
   public abilities: JSON[];
   apiService: ApiService;
-  
+
   public apiSetting = 'dnd';
 
-  constructor(private apiSelectorService : ApiSelectorService) {
+  constructor(private apiSelectorService: ApiSelectorService) {
   }
 
   ngOnInit(): void {
     this.getAbilities();
   }
 
-  getAbilities() : void {
-    this.apiService=this.apiSelectorService.getApi(this.apiSetting);
+  getAbilities(): void {
+    this.apiService = this.apiSelectorService.getApi(this.apiSetting);
     this.apiService.getAbilities()
       .subscribe(abilities => {
-        this.abilities = abilities['results'];
-        for(let ability of this.abilities) {
+        this.abilities = abilities["results"];
+        for (const ability of this.abilities) {
           this.headers = Object.keys(ability);
           break;
         }
@@ -35,10 +35,10 @@ export class AbilitiesComponent implements OnInit {
   }
 
   setApiSetting(api){
-    this.apiSetting=api;
+    this.apiSetting = api;
     this.getAbilities();
   }
-  addAbility( entry : JSON) : void{
+  addAbility( entry: JSON): void{
     this.abilities.push(entry);
   }
 

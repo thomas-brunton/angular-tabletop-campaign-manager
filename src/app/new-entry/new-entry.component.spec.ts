@@ -38,9 +38,9 @@ describe('NewEntryComponent', () => {
 
   it('should emit an event with a payload of JSON when onSubmit() is called', () => {
     const expectedOutput: JSON = JSON.parse(JSON.stringify({
-      'index': '',
-      'name': '',
-      'url': ''
+      index: '',
+      name: '',
+      url: ''
     }));
     let entry;
     component.finishedEntryEmitter.subscribe(newEntry => {

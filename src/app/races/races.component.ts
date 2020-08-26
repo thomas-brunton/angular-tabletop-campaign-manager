@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { ApiService } from "../api_services/apiInterface";
-import { ApiSelectorService } from "../api_services/api-selector.service";
+import { ApiService } from '../api_services/apiInterface';
+import { ApiSelectorService } from '../api_services/api-selector.service';
 
 @Component({
   selector: 'app-races',
@@ -16,20 +16,20 @@ export class RacesComponent implements OnInit {
   public apiSetting = 'dnd';
 
   constructor(
-    private apiSelectorService : ApiSelectorService
+    private apiSelectorService: ApiSelectorService
     ) {
   }
 
   ngOnInit(): void {
     this.getRaces();
   }
-  
+
   getRaces(): void {
-    this.apiService=this.apiSelectorService.getApi(this.apiSetting);
+    this.apiService = this.apiSelectorService.getApi(this.apiSetting);
     this.apiService.getRaces()
       .subscribe(races => {
-        this.races = races['results'];
-        for(let race of this.races) {
+        this.races = races["results"];
+        for (const race of this.races) {
           this.headers = Object.keys(race);
           break;
         }
@@ -49,7 +49,7 @@ export class RacesComponent implements OnInit {
     this.getRaces();
   }
 
-  addRace(entry: JSON): void {  //adds an entry to races
+  addRace(entry: JSON): void {  // adds an entry to races
     this.races.push(entry);
   }
 }
