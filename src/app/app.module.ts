@@ -9,6 +9,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { RacesComponent } from './races/races.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TableComponent } from './table/table.component';
+import { TableDetailComponent} from './table/table-detail/table-detail.component';
+import { TableDetailViewComponent} from './table/table-detail/table-detail-view/table-detail-view.component';
 import { NewEntryComponent } from './new-entry/new-entry.component';
 import { AbilitiesComponent } from './abilities/abilities.component';
 import { ClassesComponent } from './classes/classes.component';
@@ -20,6 +22,8 @@ import { ClassesComponent } from './classes/classes.component';
     MessagesComponent,
     RacesComponent,
     TableComponent,
+    TableDetailComponent,
+    TableDetailViewComponent,
     NewEntryComponent,
     AbilitiesComponent,
     ClassesComponent
@@ -31,6 +35,6 @@ import { ClassesComponent } from './classes/classes.component';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

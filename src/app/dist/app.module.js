@@ -17,6 +17,8 @@ var messages_component_1 = require("./messages/messages.component");
 var races_component_1 = require("./races/races.component");
 var app_routing_module_1 = require("./app-routing.module");
 var table_component_1 = require("./table/table.component");
+var table_detail_component_1 = require("./table/table-detail/table-detail.component");
+var table_detail_view_component_1 = require("./table/table-detail/table-detail-view/table-detail-view.component");
 var new_entry_component_1 = require("./new-entry/new-entry.component");
 var abilities_component_1 = require("./abilities/abilities.component");
 var classes_component_1 = require("./classes/classes.component");
@@ -31,6 +33,8 @@ var AppModule = /** @class */ (function () {
                 messages_component_1.MessagesComponent,
                 races_component_1.RacesComponent,
                 table_component_1.TableComponent,
+                table_detail_component_1.TableDetailComponent,
+                table_detail_view_component_1.TableDetailViewComponent,
                 new_entry_component_1.NewEntryComponent,
                 abilities_component_1.AbilitiesComponent,
                 classes_component_1.ClassesComponent

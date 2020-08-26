@@ -39,7 +39,7 @@ describe('RacesComponent', () => {
     dndapiService.getRaces()
       .subscribe(
         res => {
-          temp = res.results;
+          temp = res['results'];
           expect(component.races).toEqual(temp);
         }
       );

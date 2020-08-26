@@ -29,7 +29,7 @@ export class DndApiService implements ApiService{
   }
 
   getClasses(): Observable<JSON[]> {
-    return this.sendRequest('classes');
+    return this.sendRequest('/api/classes');
   }
 
   private sendRequest(url: string): Observable<JSON[]> {

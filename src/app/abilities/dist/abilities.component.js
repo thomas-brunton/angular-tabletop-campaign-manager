@@ -22,7 +22,7 @@ var AbilitiesComponent = /** @class */ (function () {
         this.apiService = this.apiSelectorService.getApi(this.apiSetting);
         this.apiService.getAbilities()
             .subscribe(function (abilities) {
-            _this.abilities = abilities["results"];
+            _this.abilities = abilities['results'];
             for (var _i = 0, _a = _this.abilities; _i < _a.length; _i++) {
                 var ability = _a[_i];
                 _this.headers = Object.keys(ability);

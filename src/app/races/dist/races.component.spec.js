@@ -33,7 +33,7 @@ describe('RacesComponent', function () {
         var temp;
         dndapiService.getRaces()
             .subscribe(function (res) {
-            temp = res.results;
+            temp = res['results'];
             expect(component.races).toEqual(temp);
         });
     });
@@ -73,13 +73,13 @@ var MockDndApiService = /** @class */ (function () {
             results: [
                 {
                     index: 'human',
-                    name: 'Name',
+                    name: 'Human',
                     url: '/api/races/human'
                 }
             ]
         };
         // races is test in string form for JSON.parse()
-        this.races = '{"count": 1,"results": [{"index": "human", "name": "Name", "url": "/api/races/human"}]}';
+        this.races = '{"count": 1,"results": [{"index": "human", "name": "Human", "url": "/api/races/human"}]}';
         this.testArray = JSON.parse(this.races);
         this.observable = new rxjs_1.Observable((function (observer) {
             observer.next(_this.testArray);

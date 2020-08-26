@@ -10,13 +10,13 @@ exports.TableComponent = void 0;
 var core_1 = require("@angular/core");
 var TableComponent = /** @class */ (function () {
     function TableComponent() {
-        this.selectedRow = JSON.parse(JSON.stringify({ "index": "" })); //  Add a blank value for index so that the modal doesn't complain that it can't populate the modal when webpage initially loads
+        this.selectedRow = JSON.parse(JSON.stringify({ 'index': '' })); //  Add a blank value for index so that the modal doesn't complain that it can't populate the modal when webpage initially loads
     }
     TableComponent.prototype.ngOnInit = function () {
     };
     TableComponent.prototype.selectRow = function (dataRow) {
         this.selectedRow = dataRow;
-        //console.log(this.selectedRow);
+        // console.log(this.selectedRow);
     };
     TableComponent.prototype.deleteRow = function (dataRow) {
         var index = this.data.findIndex(function (x) { return x['index'] === dataRow['index']; });

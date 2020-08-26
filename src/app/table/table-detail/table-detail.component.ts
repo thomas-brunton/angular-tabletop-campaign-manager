@@ -10,8 +10,6 @@ import { ApiSelectorService } from '../../api_services/api-selector.service';
 export class TableDetailComponent implements OnInit {
 
   private _data: JSON;
-
-
   @Input() // for data to be set on change
   public set data(value) {
     if (value === undefined) { return; }  //  The setting is sometimes called with a value of undefined first for some reason
@@ -38,7 +36,6 @@ export class TableDetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 
   setUrl(dataRow: JSON): void {
     this.url = dataRow["url"];
