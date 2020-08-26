@@ -54,9 +54,9 @@ describe('RacesComponent', () => {
     };
     const expectedOutput: JSON[] = [
       JSON.parse(JSON.stringify({
-        index: 'human',
-        name: 'Name',
-        url: '/api/races/human'
+        index : 'human',
+        name  : 'Human',
+        url   : '/api/races/human'
       })),
       JSON.parse(JSON.stringify({
         index: 'test',

@@ -26,7 +26,11 @@ export class VtmApiService implements ApiService{
     return this.sendRequest(url);
   }
 
-  sendRequest(url: string ): Observable<JSON[]>{
+  getClasses(): Observable<JSON[]> {
+    return this.sendRequest('clans/clans.json'); // TODO: Figure out what to do with this since classes aren't really a thing in vampire
+  }
+
+  sendRequest(url : string ) : Observable<JSON[]>{
     return this.http.get<JSON[]>(this.vtmApiUrl + url);
   }
 }
