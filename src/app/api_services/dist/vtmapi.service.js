@@ -24,6 +24,9 @@ var VtmApiService = /** @class */ (function () {
     VtmApiService.prototype.getDetails = function (url) {
         return this.sendRequest(url);
     };
+    VtmApiService.prototype.getClasses = function () {
+        return this.sendRequest('clans/clans.json'); // TODO: Figure out what to do with this since classes aren't really a thing in vampire
+    };
     VtmApiService.prototype.sendRequest = function (url) {
         return this.http.get(this.vtmApiUrl + url);
     };
