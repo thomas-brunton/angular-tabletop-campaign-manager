@@ -36,7 +36,7 @@ describe('AbilitiesComponent', () => {
     vtmApiService.getAbilities()
       .subscribe(
         res => {
-          temp = res.results;
+          temp = res['results'];
           expect(component.abilities).toEqual(temp);
         }
       );

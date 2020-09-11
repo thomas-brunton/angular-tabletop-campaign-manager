@@ -51,8 +51,8 @@ describe('TableComponent', () => {
       url: 'api/races/test'
     }));
 
-    component.selectRowToDelete(rowToDelete);
-    expect(component.rowToDelete).toEqual(expectedOutput);
+    component.selectRow(rowToDelete);
+    expect(component.selectedRow).toEqual(expectedOutput);
   });
 
   it('should delete a row in the data variable', () => {

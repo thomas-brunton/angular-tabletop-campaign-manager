@@ -38,11 +38,11 @@ export class TableDetailComponent implements OnInit {
   }
 
   setUrl(dataRow: JSON): void {
-    this.url = dataRow["url"];
+    this.url = dataRow['url'];
   }
 
   setTitle(dataRow: JSON): void {
-    this.title = dataRow["name"] + ' details';
+    this.title = dataRow['name'] + ' details';
   }
 
   getDetailsData(): void {

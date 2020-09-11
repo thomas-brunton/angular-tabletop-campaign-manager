@@ -13,7 +13,7 @@ export class TableDetailViewComponent implements OnInit {
   public set data(value){
     if (value === undefined) { return; }  //  The setting is sometimes called with a value of undefined first for some reason
     this._data = value;
-    this.name = this._data["name"];
+    this.name = this._data['name'];
     console.log(this._data);
   }
   public get data(){

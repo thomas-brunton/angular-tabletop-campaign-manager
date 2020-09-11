@@ -16,6 +16,14 @@ describe('TableDetailComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TableDetailComponent);
     component = fixture.componentInstance;
+    const testData = {
+      index : "brujah",
+      name : "Brujah",
+      url : "clans/brujah/brujah.json"
+    };
+
+    component.data = JSON.parse(JSON.stringify(testData));
+
     fixture.detectChanges();
   });
 

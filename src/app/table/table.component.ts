@@ -13,7 +13,7 @@ export class TableComponent implements OnInit {
   @Input()
   caption: string[];
 
-  public selectedRow: JSON = JSON.parse(JSON.stringify({'index': ''})); //  Add a blank value for index so that the modal doesn't complain that it can't populate the modal when webpage initially loads
+  public selectedRow: JSON = JSON.parse(JSON.stringify({index: ''})); //  Add a blank value for index so that the modal doesn't complain that it can't populate the modal when webpage initially loads
 
   constructor() {
   }

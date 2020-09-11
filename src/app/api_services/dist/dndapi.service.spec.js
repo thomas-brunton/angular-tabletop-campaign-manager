@@ -92,6 +92,19 @@ describe('DndapiService', function () {
         req.flush(testData);
         httpTestingController.verify();
     });
+    it('should get details data', function () {
+        var testData = {
+            index: "dragonborn",
+            name: "Dragonborn",
+            speed: 30
+        };
+        var testUrl = "api/races/dragonborn";
+        service.getDetails(testUrl).subscribe(function (detailsData) {
+            expect(detailsData["index"]).toBe(testData.index);
+            expect(detailsData["name"]).toBe(testData.name);
+            expect(detailsData["speed"]).toBe(testData.speed);
+        });
+    });
     it('can test for network error', function () {
         var emsg = 'simulated network error';
         service.getRaces().subscribe(function (data) {
