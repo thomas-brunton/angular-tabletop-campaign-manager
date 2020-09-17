@@ -52,9 +52,20 @@ describe('TableDetailComponent', () => {
     expect(component.url).toBe(undefined);
   });
 
+  it('should return keys data matching given url', () => {
+    const testKeys =["index", "name", "faction"];
+    component.getDetailsData();
+    expect(component.headers).toEqual(testKeys);
+  });
+
   it('should return details data matching given url', () => {
-    const testKeys ={"index", "name", "faction"};
-    
+    const testDetails = {
+      index     : "brujah",
+      name      : "Bujah",
+      faction   : "Anarch"
+  }
+    component.getDetailsData();
+    expect(JSON.stringify(component.details)).toBe(JSON.stringify(testDetails));
   });
 
 });
