@@ -22,9 +22,12 @@ export class VtmApiService implements ApiService{
   getAbilities(): Observable <JSON[]> {
     return this.sendRequest('powers/powers.json');
   }
+  getDetails(url: string): Observable <JSON[]> {
+    return this.sendRequest(url);
+  }
 
   getClasses(): Observable<JSON[]> {
-    return this.sendRequest('clans/classes.json'); // TODO: Figure out what to do with this since classes aren't really a thing in vampire
+    return this.sendRequest('clans/clans.json'); // TODO: Figure out what to do with this since classes aren't really a thing in vampire
   }
 
   sendRequest(url: string ): Observable<JSON[]>{

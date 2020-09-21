@@ -13,7 +13,7 @@ export class TableComponent implements OnInit {
   @Input()
   caption: string[];
 
-  public rowToDelete: JSON = JSON.parse(JSON.stringify({index: ''})); //  Add a blank value for index so that the modal doesn't complain that it can't populate the modal when webpage initially loads
+  public selectedRow: JSON = JSON.parse(JSON.stringify({index: ''})); //  Add a blank value for index so that the modal doesn't complain that it can't populate the modal when webpage initially loads
 
   constructor() {
   }
@@ -21,8 +21,9 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectRowToDelete(dataRow: JSON): void {
-    this.rowToDelete = dataRow;
+  selectRow(dataRow: JSON): void {
+    this.selectedRow = dataRow;
+    // console.log(this.selectedRow);
   }
 
   deleteRow(dataRow: JSON): void {
@@ -31,5 +32,4 @@ export class TableComponent implements OnInit {
       this.data.splice(index, 1);
     }
   }
-
 }

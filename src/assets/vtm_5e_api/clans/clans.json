@@ -4,12 +4,12 @@
         {
             "index" : "brujah",
             "name"  : "Brujah",
-            "url"   : "clans/brujah"
+            "url"   : "clans/brujah/brujah.json"
         },
         {
             "index" : "gangrel",
             "name"  : "Gangrel",
-            "url"   : "clans/gangrel"
+            "url"   : "clans/gangrel/gangrel.json"
         },
         {
             "index" : "malkavians",

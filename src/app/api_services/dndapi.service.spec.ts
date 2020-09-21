@@ -53,28 +53,6 @@ describe('DndapiService', () => {
     httpTestingController.verify();
   });
 
-  it('should get classes data', () => {
-    const testData = {
-      count: 1,
-      results: [
-        {
-          index: 'barbarian',
-          name: 'Barbarian',
-          url: '/api/classes/barbarian'
-        }
-      ]
-    };
-
-    service.getClasses().subscribe((classesData: any) => {
-      expect(classesData).toEqual(testData);
-    });
-
-    const req = httpTestingController.expectOne('https://www.dnd5eapi.co/api/classes');
-    expect(req.request.method).toEqual('GET');
-    req.flush(testData);
-    httpTestingController.verify();
-  });
-
   // testing for getAbilities function
   it('should get spell data', () => {
     const testData = {
@@ -110,6 +88,43 @@ describe('DndapiService', () => {
     // Finally, assert that there are no outstanding requests.
     httpTestingController.verify();
   });
+
+  it('should get classes data', () => {
+    const testData = {
+      count: 1,
+      results: [
+        {
+          index: 'barbarian',
+          name: 'Barbarian',
+          url: '/api/classes/barbarian'
+        }
+      ]
+    };
+
+    service.getClasses().subscribe((classesData: any) => {
+      expect(classesData).toEqual(testData);
+    });
+
+    const req = httpTestingController.expectOne('https://www.dnd5eapi.co/api/classes');
+    expect(req.request.method).toEqual('GET');
+    req.flush(testData);
+    httpTestingController.verify();
+  });
+
+  it('should get details data', () => {
+    const testData = {
+      index : 'dragonborn',
+      name  : 'Dragonborn',
+      speed : 30
+    };
+    const testUrl = 'api/races/dragonborn';
+    service.getDetails(testUrl).subscribe((detailsData: any) => {
+      expect(detailsData['index']).toBe(testData.index);
+      expect(detailsData['name']).toBe(testData.name);
+      expect(detailsData['speed']).toBe(testData.speed);
+    });
+  });
+
   it('can test for network error', () => {
     const emsg = 'simulated network error';
 
@@ -134,6 +149,5 @@ describe('DndapiService', () => {
 
     // Respond with mock error
     req.error(mockError);
-    }
-  );
+  });
 });
