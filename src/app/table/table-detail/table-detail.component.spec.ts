@@ -67,7 +67,6 @@ describe('TableDetailComponent', () => {
     component.getDetailsData();
     expect(JSON.stringify(component.details)).toBe(JSON.stringify(testDetails));
   });
-
 });
 
 class MockVtmApiService{

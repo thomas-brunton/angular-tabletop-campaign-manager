@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {TableComponent} from "../../table.component";
 import { TableDetailViewComponent } from './table-detail-view.component';
+
+const testData = {
+  index     : "brujah",
+  name      : "Bujah",
+  faction   : "Anarch"
+};
 
 describe('TableDetailViewComponent', () => {
   let component: TableDetailViewComponent;
@@ -8,7 +14,8 @@ describe('TableDetailViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableDetailViewComponent ]
+      declarations: [ TableDetailViewComponent ],
+      imports : [ TableComponent],
     })
     .compileComponents();
   }));
@@ -16,6 +23,9 @@ describe('TableDetailViewComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TableDetailViewComponent);
     component = fixture.componentInstance;
+
+    component.data = JSON.parse(JSON.stringify(testData));
+
     fixture.detectChanges();
   });
 
