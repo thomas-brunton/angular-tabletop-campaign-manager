@@ -111,18 +111,18 @@ describe('DndapiService', () => {
     httpTestingController.verify();
   });
 
-  it('should get details data', () =>{
+  it('should get details data', () => {
     const testData = {
-      index : "dragonborn",
-      name  : "Dragonborn",
+      index : 'dragonborn',
+      name  : 'Dragonborn',
       speed : 30
     };
-    const testUrl = "api/races/dragonborn";
-    service.getDetails(testUrl).subscribe((detailsData : any) => {
-      expect(detailsData["index"]).toBe(testData.index);
-      expect(detailsData["name"]).toBe(testData.name);
-      expect(detailsData["speed"]).toBe(testData.speed);
-    })
+    const testUrl = 'api/races/dragonborn';
+    service.getDetails(testUrl).subscribe((detailsData: any) => {
+      expect(detailsData['index']).toBe(testData.index);
+      expect(detailsData['name']).toBe(testData.name);
+      expect(detailsData['speed']).toBe(testData.speed);
+    });
   });
 
   it('can test for network error', () => {

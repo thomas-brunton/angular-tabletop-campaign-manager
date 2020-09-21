@@ -86,12 +86,12 @@ describe('VtmapiService', () => {
 
   it('should return details', () => {
     const testData = {
-    index     : "brujah",
-    name      : "Bujah",
-    faction   : "Anarch"
+    index     : 'brujah',
+    name      : 'Bujah',
+    faction   : 'Anarch'
     };
 
-    const testUrl = 'clans/brujah/brujah.json'
+    const testUrl = 'clans/brujah/brujah.json';
 
     service.getDetails(testUrl).subscribe((detailsData: any) => {
       expect(detailsData?.index).toBe(testData.index);
