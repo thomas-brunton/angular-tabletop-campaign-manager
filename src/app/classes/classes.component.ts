@@ -13,8 +13,6 @@ export class ClassesComponent implements OnInit {
   public tableTopClasses: JSON[];
   apiService: ApiService;
 
-  public apiSetting = 'dnd';
-
   constructor(private apiSelectorService: ApiSelectorService) { }
 
   ngOnInit(): void {
@@ -22,7 +20,7 @@ export class ClassesComponent implements OnInit {
   }
 
   getClasses(): void {
-    this.apiService = this.apiSelectorService.getApi(this.apiSetting);
+    this.apiService = this.apiSelectorService.getApi();
     this.apiService.getClasses()
       .subscribe(tableTopClasses => {
         this.tableTopClasses = tableTopClasses['results'];
@@ -32,19 +30,6 @@ export class ClassesComponent implements OnInit {
         }
         console.log(tableTopClasses);
       });
-  }
-
-  setApiSetting(newValue) {
-    this.apiSetting = newValue;
-  }
-
-  getApiSetting() {
-    return this.apiSetting;
-  }
-
-  onSettingChange(newValue) {
-    this.apiSetting = newValue;
-    this.getClasses();
   }
 
   addClass(entry: JSON): void {

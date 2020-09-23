@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>settings works!</p>
+            <p>Most recent setting change: {{mostRecentSettingChange}}</p>
+        </div>
+    </div>
+    <div class="row" *ngFor="let setting of settings">
+        <label for="{{setting.name}}" class="col-sm-2 col-form-label">{{setting.name}}</label>
+        <div class="col-sm-10">
+            <select class="form-control" name="{{setting.name}}" (change)="settingChange($event)">
+                <option *ngFor="let value of setting.values" [value]="value" [selected]="value === setting.selectedValue">{{value}}</option>
+            </select>
+        </div>
+    </div>
+</div>

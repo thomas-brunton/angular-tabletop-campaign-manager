@@ -1,5 +1,3 @@
-import { Component } from '@angular/core';
-
 export interface Layout{
     position: number; // order
     name: string; // name of the table

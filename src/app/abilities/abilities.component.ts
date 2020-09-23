@@ -13,8 +13,6 @@ export class AbilitiesComponent implements OnInit {
   public abilities: JSON[];
   apiService: ApiService;
 
-  public apiSetting = 'dnd';
-
   constructor(private apiSelectorService: ApiSelectorService) {
   }
 
@@ -23,7 +21,7 @@ export class AbilitiesComponent implements OnInit {
   }
 
   getAbilities(): void {
-    this.apiService = this.apiSelectorService.getApi(this.apiSetting);
+    this.apiService = this.apiSelectorService.getApi();
     this.apiService.getAbilities()
       .subscribe(abilities => {
         this.abilities = abilities['results'];
@@ -34,10 +32,6 @@ export class AbilitiesComponent implements OnInit {
       });
   }
 
-  setApiSetting(api){
-    this.apiSetting = api;
-    this.getAbilities();
-  }
   addAbility( entry: JSON): void{
     this.abilities.push(entry);
   }
