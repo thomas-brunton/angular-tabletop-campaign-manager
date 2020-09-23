@@ -12,13 +12,13 @@ export class ApiSelectorService {
   VTM = 'vtm';
 
   constructor(
-    private SettingsService: SettingsService,
+    private settingsService: SettingsService,
     private dndApiService: DndApiService,
     private vtmApiService: VtmApiService
   ) { }
 
   getApi(): ApiService{
-    const setting = this.SettingsService.getSetting('api');
+    const setting = this.settingsService.getSetting('api');
     switch (setting){
       case(this.DND): {
         return this.dndApiService;
