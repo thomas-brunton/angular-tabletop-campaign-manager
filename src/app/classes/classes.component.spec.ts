@@ -4,10 +4,13 @@ import { ClassesComponent } from './classes.component';
 import { DndApiService } from '../api_services/dndapi.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Observable } from 'rxjs';
+import { ApiSelectorService } from '../api_services/api-selector.service';
 
 describe('ClassesComponent', () => {
   let component: ClassesComponent;
   let dndapiService: DndApiService;
+  let apiSelectorService: ApiSelectorService;
+  let spy: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -21,6 +24,7 @@ describe('ClassesComponent', () => {
 
     component = TestBed.inject(ClassesComponent);
     dndapiService = TestBed.inject(DndApiService);
+    apiSelectorService = TestBed.inject(ApiSelectorService);
   });
 
   it('should create', () => {
@@ -32,7 +36,7 @@ describe('ClassesComponent', () => {
   });
 
   it('should get values for the tableTopClasses variable after Angular calls ngOnInit', () => {
-    component.setApiSetting('dnd'); //  TODO: Might want to test with the vtm api later?
+    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService);
     component.ngOnInit();
     let temp;
     dndapiService.getClasses()
@@ -45,6 +49,7 @@ describe('ClassesComponent', () => {
   });
 
   it('should be able to add a tableTopClass to the tableTopClasses variable', () => {
+    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService);
     component.ngOnInit();
     const newClassObj = {
       index: 'test',
@@ -66,11 +71,6 @@ describe('ClassesComponent', () => {
     const newClass: JSON = JSON.parse(JSON.stringify(newClassObj));
     component.addClass(newClass);
     expect(component.tableTopClasses).toEqual(expectedOutput);
-  });
-
-  it('should return correct dnd apiSetting once set', () => {
-    component.onSettingChange('dnd');
-    expect(component.getApiSetting()).toEqual('dnd');
   });
 });
 
