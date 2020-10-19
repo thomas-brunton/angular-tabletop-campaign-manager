@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './apiInterface';
 import { DndApiService } from './dndapi.service';
 import { VtmApiService } from './vtmapi.service';
+import { SettingsService } from '../settings/settings.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,13 @@ export class ApiSelectorService {
   VTM = 'vtm';
 
   constructor(
+    private settingsService: SettingsService,
     private dndApiService: DndApiService,
     private vtmApiService: VtmApiService
   ) { }
 
-  getApi(setting: string): ApiService{
+  getApi(): ApiService{
+    const setting = this.settingsService.getSetting('api');
     switch (setting){
       case(this.DND): {
         return this.dndApiService;

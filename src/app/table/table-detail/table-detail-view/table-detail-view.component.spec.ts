@@ -15,7 +15,7 @@ describe('TableDetailViewComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TableDetailViewComponent ],
-      imports : [ TableComponent],
+      providers: [ TableComponent ]
     })
     .compileComponents();
   }));

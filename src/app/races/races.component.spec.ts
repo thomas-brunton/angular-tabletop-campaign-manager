@@ -4,10 +4,13 @@ import { RacesComponent } from './races.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DndApiService } from '../api_services/dndapi.service';
 import { Observable } from 'rxjs';
+import { ApiSelectorService } from '../api_services/api-selector.service';
 
 describe('RacesComponent', () => {
   let component: RacesComponent;
   let dndapiService: DndApiService;
+  let apiSelectorService: ApiSelectorService;
+  let spy: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,12 +19,13 @@ describe('RacesComponent', () => {
       // Provide the component-under-test and dependent service
       providers: [
         RacesComponent,
-        { provide: DndApiService, useClass: MockDndApiService }
+        { provide: DndApiService, useClass: MockDndApiService },
       ]
     });
 
     component = TestBed.inject(RacesComponent);
     dndapiService = TestBed.inject(DndApiService);
+    apiSelectorService = TestBed.inject(ApiSelectorService);
   });
 
   it('should create', () => {
@@ -33,7 +37,7 @@ describe('RacesComponent', () => {
   });
 
   it('should get values for the races variable after Angular calls ngOnInit', () => {
-    component.setApiSetting('dnd'); //  TODO: Might want to test with the vtm api later?
+    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService); // Spy on the apiSelectorService and return the api service we need for the test to continue
     component.ngOnInit();
     let temp;
     dndapiService.getRaces()
@@ -46,6 +50,7 @@ describe('RacesComponent', () => {
   });
 
   it('should be able to add a race to the races variable', () => {
+    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService); // Spy on the apiSelectorService and return the api service we need for the test to continue
     component.ngOnInit();
     const newRaceObj = {
       index: 'test',
@@ -68,12 +73,6 @@ describe('RacesComponent', () => {
     component.addRace(newRace);
     expect(component.races).toEqual(expectedOutput);
   });
-
-  it('should return correct dnd apiSetting once set', () => {
-    component.onSettingChange('dnd');
-    expect(component.getApiSetting()).toEqual('dnd');
-  });
-
 });
 
 class MockDndApiService {

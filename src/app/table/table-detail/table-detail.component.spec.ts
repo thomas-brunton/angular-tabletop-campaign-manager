@@ -4,6 +4,7 @@ import { TableDetailComponent } from './table-detail.component';
 import {VtmApiService} from '../../api_services/vtmapi.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import { Observable } from 'rxjs';
+import { ApiSelectorService } from 'src/app/api_services/api-selector.service';
 
 const testData = {
   index : 'brujah',
@@ -14,6 +15,9 @@ const testData = {
 describe('TableDetailComponent', () => {
   let component: TableDetailComponent;
   let fixture: ComponentFixture<TableDetailComponent>;
+  let vtmapiService: VtmApiService;
+  let apiSelectorService: ApiSelectorService;
+  let spy: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -30,10 +34,12 @@ describe('TableDetailComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TableDetailComponent);
+    vtmapiService = TestBed.inject(VtmApiService);
+    apiSelectorService = TestBed.inject(ApiSelectorService);
     component = fixture.componentInstance;
 
+    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(vtmapiService);
     component.data = JSON.parse(JSON.stringify(testData));
-    component.apiSetting = 'vtm';
     fixture.detectChanges();
   });
 

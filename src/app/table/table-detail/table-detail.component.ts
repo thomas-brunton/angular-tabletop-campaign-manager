@@ -28,7 +28,6 @@ export class TableDetailComponent implements OnInit {
   details: JSON[];
 
   apiService: ApiService;
-  apiSetting = 'dnd';
 
   constructor(
     private apiSelectorService: ApiSelectorService
@@ -46,7 +45,11 @@ export class TableDetailComponent implements OnInit {
   }
 
   getDetailsData(): void {
-    this.apiService = this.apiSelectorService.getApi(this.apiSetting);
+    if (this.url === undefined) { //  TODO: Figure out why the detail view sometimes makes random data requests with an undefined url which makes errors in the console
+      console.log('Cancelling detail view request since the component randomly sends requests with an undefined url');
+      return;
+    }
+    this.apiService = this.apiSelectorService.getApi();
     this.apiService.getDetails(this.url).subscribe( details => {
       this.details = details;
       this.headers = Object.keys(this.details);
