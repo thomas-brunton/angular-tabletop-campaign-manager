@@ -3,10 +3,14 @@ import { AbilitiesComponent } from './abilities.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import { VtmApiService } from '../api_services/vtmapi.service';
 import { Observable } from 'rxjs';
+import { ApiService } from '../api_services/apiInterface';
+import { ApiSelectorService } from '../api_services/api-selector.service';
 
 describe('AbilitiesComponent', () => {
   let component: AbilitiesComponent;
   let vtmApiService: VtmApiService;
+  let apiSelectorService: ApiSelectorService;
+  let spy: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -19,6 +23,7 @@ describe('AbilitiesComponent', () => {
     });
     component = TestBed.inject(AbilitiesComponent);
     vtmApiService = TestBed.inject(VtmApiService);
+    apiSelectorService = TestBed.inject(ApiSelectorService);
   });
 
   it('should create', () => {
@@ -30,7 +35,7 @@ describe('AbilitiesComponent', () => {
   });
 
   it('Should get spells once angular runs ngOnInit', () => {
-    component.setApiSetting('vtm');
+    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(vtmApiService);
     component.ngOnInit();
     let temp;
     vtmApiService.getAbilities()
@@ -43,10 +48,8 @@ describe('AbilitiesComponent', () => {
   });
 
   it('Should add an ability with corresponding data', () => {
-    component.setApiSetting('vtm');
-    // console.log(component.apiSetting);
+    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(vtmApiService);
     component.ngOnInit();
-    // console.log(component.abilities);
     const testData =
         {
           index : 'one_with_the_blade',
@@ -78,7 +81,7 @@ describe('AbilitiesComponent', () => {
   });
 });
 
-class MockVtmApiService{
+class MockVtmApiService {
   test = {
     count : 1,
     results : [

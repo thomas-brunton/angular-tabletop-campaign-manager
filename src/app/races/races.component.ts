@@ -13,8 +13,6 @@ export class RacesComponent implements OnInit {
   public races: JSON[];
   apiService: ApiService;
 
-  public apiSetting = 'dnd';
-
   constructor(
     private apiSelectorService: ApiSelectorService
     ) {
@@ -25,7 +23,7 @@ export class RacesComponent implements OnInit {
   }
 
   getRaces(): void {
-    this.apiService = this.apiSelectorService.getApi(this.apiSetting);
+    this.apiService = this.apiSelectorService.getApi();
     this.apiService.getRaces()
       .subscribe(races => {
         this.races = races['results'];
@@ -34,19 +32,6 @@ export class RacesComponent implements OnInit {
           break;
         }
       });
-  }
-
-  setApiSetting(newValue) {
-    this.apiSetting = newValue;
-  }
-
-  getApiSetting() {
-    return this.apiSetting;
-  }
-
-  onSettingChange(newValue) {
-    this.apiSetting = newValue;
-    this.getRaces();
   }
 
   addRace(entry: JSON): void {  // adds an entry to races

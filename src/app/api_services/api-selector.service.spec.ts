@@ -3,12 +3,15 @@ import { ApiSelectorService } from './api-selector.service';
 import { DndApiService } from './dndapi.service';
 import { VtmApiService } from './vtmapi.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { SettingsService } from '../settings/settings.service';
 
 describe('ApiSelectorService', () => {
   let service: ApiSelectorService;
   let dndService: DndApiService;
   let vtmService: VtmApiService;
   let httpTestingController: HttpTestingController;
+  let settingService: SettingsService;
+  let spy: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -18,6 +21,7 @@ describe('ApiSelectorService', () => {
     dndService = TestBed.inject(DndApiService);
     vtmService = TestBed.inject(VtmApiService);
     httpTestingController = TestBed.inject(HttpTestingController);
+    settingService = TestBed.inject(SettingsService);
   });
 
   it('should be created', () => {
@@ -25,18 +29,18 @@ describe('ApiSelectorService', () => {
   });
 
   it('should pull dnd api', () => {
-    const testSetting = 'dnd';
-    expect(service.getApi(testSetting)).toBe(dndService);
+    spy = spyOn(settingService, 'getSetting').and.returnValue('dnd');
+    expect(service.getApi()).toBe(dndService);
   });
 
   it('should pull vtm api', () => {
-    const testSetting = 'vtm';
-    expect(service.getApi(testSetting)).toBe(vtmService);
+    spy = spyOn(settingService, 'getSetting').and.returnValue('vtm');
+    expect(service.getApi()).toBe(vtmService);
   });
 
   it('should pull default api (dnd)', () => {
-    const defaultSetting = 'default';
-    expect(service.getApi(defaultSetting)).toBe(dndService);
+    spy = spyOn(settingService, 'getSetting').and.returnValue('');
+    expect(service.getApi()).toBe(dndService);
   });
 
 });

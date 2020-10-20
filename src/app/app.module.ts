@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { APP_INITIALIZER } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -14,6 +15,8 @@ import { TableDetailViewComponent} from './table/table-detail/table-detail-view/
 import { NewEntryComponent } from './new-entry/new-entry.component';
 import { AbilitiesComponent } from './abilities/abilities.component';
 import { ClassesComponent } from './classes/classes.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SettingsService } from './settings/settings.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { ClassesComponent } from './classes/classes.component';
     TableDetailViewComponent,
     NewEntryComponent,
     AbilitiesComponent,
-    ClassesComponent
+    ClassesComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,16 @@ import { ClassesComponent } from './classes/classes.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    SettingsService,  //  The settings service is run when the app initially loads to load the settings so they can be used by the rest of the app
+                      //  This is done with the APP_INITILIZER token to call the initFunction in the SettingsService
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (ss: SettingsService) => () => ss.initFunction(),
+      deps: [SettingsService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
