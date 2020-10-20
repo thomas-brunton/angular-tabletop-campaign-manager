@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-dnd-campaign-manager';
+  sideBarShown = false;
+
+
+  toggleSidebar(){
+    this.sideBarShown = !this.sideBarShown;
+  }
 }
