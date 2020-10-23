@@ -6,19 +6,14 @@
     </nav>
 
     <div id="content">
-        <div id="content">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
-        
-                    <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleSidebar()">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Dashboard</span>
-                    </button>
-        
-                </div>
-            </nav>
-        </div>
-
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleSidebar()">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Dashboard</span>
+                </button>
+            </div>
+        </nav>
         <router-outlet></router-outlet>
         <app-messages></app-messages>
     </div>
