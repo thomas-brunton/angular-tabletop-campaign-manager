@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../../api_services/apiInterface';
 import { ApiSelectorService } from '../../api_services/api-selector.service';
 
@@ -22,6 +22,10 @@ export class TableDetailComponent implements OnInit {
   public get data() {  //  Need the getter for getting the headers in the view, the for loop for headers doesn't work otherwise
     return this._data;
   }
+
+  @Output()
+  deleteRowEvent = new EventEmitter();
+
   url: string;
   title: string;
   headers: string[];
@@ -54,5 +58,9 @@ export class TableDetailComponent implements OnInit {
       this.details = details;
       this.headers = Object.keys(this.details);
     });
+  }
+
+  deleteRow(event) {
+    this.deleteRowEvent.emit(event);
   }
 }

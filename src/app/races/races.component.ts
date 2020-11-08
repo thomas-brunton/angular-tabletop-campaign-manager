@@ -37,4 +37,12 @@ export class RacesComponent implements OnInit {
   addRace(entry: JSON): void {  // adds an entry to races
     this.races.push(entry);
   }
+
+  deleteRow(event: string) {
+    const dataRow = JSON.parse(event);
+    const index = this.races.findIndex(x => x['index'] === dataRow['index']);
+    if (index >= 0) {
+      this.races.splice(index, 1);
+    }
+  }
 }

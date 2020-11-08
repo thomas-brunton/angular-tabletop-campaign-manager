@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {TableComponent} from './../../table.component';
 
 @Component({
@@ -30,6 +30,9 @@ export class TableDetailViewComponent implements OnInit {
     return this._headers;
   }
 
+  @Output()
+  deleteRowEvent = new EventEmitter();
+
   public name: string;
 
   constructor(
@@ -40,7 +43,7 @@ export class TableDetailViewComponent implements OnInit {
   }
 
   deleteRow(entry: JSON): void {
-    this.tableComponent.deleteRow(entry);
+    this.deleteRowEvent.emit(JSON.stringify(entry));
   }
 
 }

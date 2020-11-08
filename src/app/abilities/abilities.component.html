@@ -8,4 +8,4 @@
 
 <app-new-entry [caption]="caption" [headers]="headers" (finishedEntryEmitter)="addAbility($event)"></app-new-entry>
 
-<app-table [caption]="caption" [headers]="headers" [data]="abilities"></app-table>
+<app-table [caption]="caption" [headers]="headers" [data]="abilities" (deleteRowEvent)="deleteRow($event)"></app-table>
