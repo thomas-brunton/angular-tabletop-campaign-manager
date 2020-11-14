@@ -25,6 +25,24 @@ describe('ClassesComponent', () => {
     component = TestBed.inject(ClassesComponent);
     dndapiService = TestBed.inject(DndApiService);
     apiSelectorService = TestBed.inject(ApiSelectorService);
+
+    // Initialize races with some data
+    component.tableTopClasses = [
+      JSON.parse(JSON.stringify(
+          {
+            index: 'test',
+            name: 'test',
+            url: 'api/races/test'
+          },
+      )),
+      JSON.parse(JSON.stringify(
+        {
+          index: 'test2',
+          name: 'test2',
+          url: 'api/races/test2'
+        }
+      ))
+    ];
   });
 
   it('should create', () => {
@@ -32,6 +50,7 @@ describe('ClassesComponent', () => {
   });
 
   it('should not have a value for the tableTopClasses variable after construction', () => {
+    component.tableTopClasses = undefined; // TODO: Think of a better way to do this unit test
     expect(component.tableTopClasses).toBeUndefined();
   });
 
@@ -70,6 +89,53 @@ describe('ClassesComponent', () => {
     ];
     const newClass: JSON = JSON.parse(JSON.stringify(newClassObj));
     component.addClass(newClass);
+    expect(component.tableTopClasses).toEqual(expectedOutput);
+  });
+
+  it('should delete a row in the data variable', () => {
+    const expectedOutput = [
+      JSON.parse(JSON.stringify(
+        {
+          index: 'test2',
+          name: 'test2',
+          url: 'api/races/test2'
+        }
+      ))
+    ];
+    const rowToDelete: JSON = JSON.parse(JSON.stringify({
+      index: 'test',
+      name: 'test',
+      url: 'api/races/test'
+    }));
+
+    component.deleteRow(JSON.stringify(rowToDelete));
+    expect(component.tableTopClasses).toEqual(expectedOutput);
+  });
+
+  it('should not delete a row if no entry is found', () => {
+    const expectedOutput = [
+      JSON.parse(JSON.stringify(
+          {
+            index: 'test',
+            name: 'test',
+            url: 'api/races/test'
+          },
+      )),
+      JSON.parse(JSON.stringify(
+        {
+          index: 'test2',
+          name: 'test2',
+          url: 'api/races/test2'
+        }
+      ))
+    ];
+    const rowToDelete: JSON = JSON.parse(JSON.stringify({
+      index: 'test3',
+      name: 'test3',
+      url: 'api/races/test3'
+    }));
+
+    component.deleteRow(JSON.stringify(rowToDelete));
     expect(component.tableTopClasses).toEqual(expectedOutput);
   });
 });

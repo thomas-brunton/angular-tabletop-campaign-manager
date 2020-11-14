@@ -24,6 +24,24 @@ describe('AbilitiesComponent', () => {
     component = TestBed.inject(AbilitiesComponent);
     vtmApiService = TestBed.inject(VtmApiService);
     apiSelectorService = TestBed.inject(ApiSelectorService);
+
+    // Initialize races with some data
+    component.abilities = [
+      JSON.parse(JSON.stringify(
+          {
+            index: 'test',
+            name: 'test',
+            url: 'api/races/test'
+          },
+      )),
+      JSON.parse(JSON.stringify(
+        {
+          index: 'test2',
+          name: 'test2',
+          url: 'api/races/test2'
+        }
+      ))
+    ];
   });
 
   it('should create', () => {
@@ -31,6 +49,7 @@ describe('AbilitiesComponent', () => {
   });
 
   it('Should not have abilities on construction', () => {
+    component.abilities = undefined; // TODO: Think of a better way to do this unit test
     expect(component.abilities).toBeUndefined();
   });
 
@@ -77,7 +96,53 @@ describe('AbilitiesComponent', () => {
 
     component.addAbility(testJSON);
     expect(component.abilities).toEqual(expectedOutput);
+  });
 
+  it('should delete a row in the data variable', () => {
+    const expectedOutput = [
+      JSON.parse(JSON.stringify(
+        {
+          index: 'test2',
+          name: 'test2',
+          url: 'api/races/test2'
+        }
+      ))
+    ];
+    const rowToDelete: JSON = JSON.parse(JSON.stringify({
+      index: 'test',
+      name: 'test',
+      url: 'api/races/test'
+    }));
+
+    component.deleteRow(JSON.stringify(rowToDelete));
+    expect(component.abilities).toEqual(expectedOutput);
+  });
+
+  it('should not delete a row if no entry is found', () => {
+    const expectedOutput = [
+      JSON.parse(JSON.stringify(
+          {
+            index: 'test',
+            name: 'test',
+            url: 'api/races/test'
+          },
+      )),
+      JSON.parse(JSON.stringify(
+        {
+          index: 'test2',
+          name: 'test2',
+          url: 'api/races/test2'
+        }
+      ))
+    ];
+    const rowToDelete: JSON = JSON.parse(JSON.stringify({
+      index: 'test3',
+      name: 'test3',
+      url: 'api/races/test3'
+    }));
+
+    component.deleteRow(JSON.stringify(rowToDelete));
+    expect(component.abilities).toEqual(expectedOutput);
   });
 });
 

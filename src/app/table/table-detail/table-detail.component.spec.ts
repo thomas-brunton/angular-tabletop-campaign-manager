@@ -69,9 +69,31 @@ describe('TableDetailComponent', () => {
       index     : 'brujah',
       name      : 'Bujah',
       faction   : 'Anarch'
-  };
+    };
     component.getDetailsData();
     expect(JSON.stringify(component.details)).toBe(JSON.stringify(testDetails));
+  });
+
+  it('should not call the api service if the url is undefined', () => {
+    component.url = undefined;
+    component.getDetailsData();
+    // The component calls the service once on startup because of call in the before each function above
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should emit an event to delete a row', () => {
+    spyOn(component.deleteRowEvent, 'emit');
+
+    component.deleteRow('test');
+
+    fixture.detectChanges();
+
+    expect(component.deleteRowEvent.emit).toHaveBeenCalledWith('test');
+  });
+
+  it('should not return any details data when the url is undefined', () => {
+    component.url = undefined;
+    expect(component.getDetailsData()).toEqual(null);
   });
 });
 
