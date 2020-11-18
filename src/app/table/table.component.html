@@ -17,4 +17,4 @@
     </table>
 </div>
 
-<app-table-detail [data] = "selectedRow"></app-table-detail>
+<app-table-detail [data] = "selectedRow" (deleteRowEvent)="deleteRow($event)"></app-table-detail>

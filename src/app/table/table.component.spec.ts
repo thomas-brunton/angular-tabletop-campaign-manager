@@ -16,22 +16,6 @@ describe('TableComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TableComponent);
     component = fixture.componentInstance;
-    component.data = [
-      JSON.parse(JSON.stringify(
-          {
-            index: 'test',
-            name: 'test',
-            url: 'api/races/test'
-          },
-      )),
-      JSON.parse(JSON.stringify(
-        {
-          index: 'test2',
-          name: 'test2',
-          url: 'api/races/test2'
-        }
-      ))
-    ];
     fixture.detectChanges();
   });
 
@@ -55,50 +39,13 @@ describe('TableComponent', () => {
     expect(component.selectedRow).toEqual(expectedOutput);
   });
 
-  it('should delete a row in the data variable', () => {
-    const expectedOutput = [
-      JSON.parse(JSON.stringify(
-        {
-          index: 'test2',
-          name: 'test2',
-          url: 'api/races/test2'
-        }
-      ))
-    ];
-    const rowToDelete: JSON = JSON.parse(JSON.stringify({
-      index: 'test',
-      name: 'test',
-      url: 'api/races/test'
-    }));
+  it('should emit an event to delete a row', () => {
+    spyOn(component.deleteRowEvent, 'emit');
 
-    component.deleteRow(rowToDelete);
-    expect(component.data).toEqual(expectedOutput);
-  });
+    component.deleteRow('test');
 
-  it('should not delete a row if no entry is found', () => {
-    const expectedOutput = [
-      JSON.parse(JSON.stringify(
-          {
-            index: 'test',
-            name: 'test',
-            url: 'api/races/test'
-          },
-      )),
-      JSON.parse(JSON.stringify(
-        {
-          index: 'test2',
-          name: 'test2',
-          url: 'api/races/test2'
-        }
-      ))
-    ];
-    const rowToDelete: JSON = JSON.parse(JSON.stringify({
-      index: 'test3',
-      name: 'test3',
-      url: 'api/races/test3'
-    }));
+    fixture.detectChanges();
 
-    component.deleteRow(rowToDelete);
-    expect(component.data).toEqual(expectedOutput);
+    expect(component.deleteRowEvent.emit).toHaveBeenCalledWith('test');
   });
 });
