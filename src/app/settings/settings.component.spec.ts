@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SettingsComponent } from './settings.component';
 import { SettingsService } from './settings.service';
@@ -10,7 +10,7 @@ describe('SettingsComponent', () => {
   let settingsService: SettingsService;
   const spyList: any[] = [];
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SettingsComponent ]
     })
