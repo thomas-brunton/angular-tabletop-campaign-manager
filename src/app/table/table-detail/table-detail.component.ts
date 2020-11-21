@@ -42,7 +42,7 @@ export class TableDetailComponent implements OnInit {
   }
 
   setUrl(dataRow: JSON): boolean {
-    if (dataRow===undefined || dataRow['url'] === undefined || dataRow['url'] === ''){
+    if (dataRow === undefined || dataRow['url'] === undefined || dataRow['url'] === ''){
       return false;
     }
     else{
