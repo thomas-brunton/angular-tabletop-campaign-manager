@@ -52,6 +52,13 @@ describe('TableDetailComponent', () => {
     expect(component.url).toBe(testData['url']);
   });
 
+  it('should return false if given any json files with no url key or undefined url key', () => {
+    const testUrl = undefined;
+
+    expect(component.setUrl(testUrl)).toBe(false);
+
+  });
+
   it('should not update url, details or title if data is undefined', () => {
     component.url = undefined;
     component.data = undefined;
@@ -74,13 +81,6 @@ describe('TableDetailComponent', () => {
     expect(JSON.stringify(component.details)).toBe(JSON.stringify(testDetails));
   });
 
-  it('should not call the api service if the url is undefined', () => {
-    component.url = undefined;
-    component.getDetailsData();
-    // The component calls the service once on startup because of call in the before each function above
-    expect(spy).toHaveBeenCalledTimes(1);
-  });
-
   it('should emit an event to delete a row', () => {
     spyOn(component.deleteRowEvent, 'emit');
 
@@ -89,11 +89,6 @@ describe('TableDetailComponent', () => {
     fixture.detectChanges();
 
     expect(component.deleteRowEvent.emit).toHaveBeenCalledWith('test');
-  });
-
-  it('should not return any details data when the url is undefined', () => {
-    component.url = undefined;
-    expect(component.getDetailsData()).toEqual(null);
   });
 });
 

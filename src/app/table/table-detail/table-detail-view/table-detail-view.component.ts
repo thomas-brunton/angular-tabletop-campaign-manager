@@ -14,7 +14,6 @@ export class TableDetailViewComponent implements OnInit {
     if (value === undefined) { return; }  //  The setting is sometimes called with a value of undefined first for some reason
     this._data = value;
     this.name = this._data['name'];
-    console.log(this._data);
   }
   public get data(){
     return this._data;
