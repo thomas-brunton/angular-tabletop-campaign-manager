@@ -3,7 +3,6 @@ import { AbilitiesComponent } from './abilities.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import { VtmApiService } from '../api_services/vtmapi.service';
 import { Observable } from 'rxjs';
-import { ApiService } from '../api_services/apiInterface';
 import { ApiSelectorService } from '../api_services/api-selector.service';
 
 describe('AbilitiesComponent', () => {

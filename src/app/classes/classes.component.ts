@@ -28,7 +28,6 @@ export class ClassesComponent implements OnInit {
           this.headers = Object.keys(tableTopClass);
           break;
         }
-        console.log(tableTopClasses);
       });
   }
 
