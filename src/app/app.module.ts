@@ -17,6 +17,7 @@ import { AbilitiesComponent } from './abilities/abilities.component';
 import { ClassesComponent } from './classes/classes.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SettingsService } from './settings/settings.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SettingsService } from './settings/settings.service';
     NewEntryComponent,
     AbilitiesComponent,
     ClassesComponent,
-    SettingsComponent
+    SettingsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
