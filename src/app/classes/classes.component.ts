@@ -4,8 +4,7 @@ import { ApiSelectorService } from '../api_services/api-selector.service';
 
 @Component({
   selector: 'app-classes',
-  templateUrl: './classes.component.html',
-  styleUrls: ['./classes.component.css']
+  templateUrl: './classes.component.html'
 })
 export class ClassesComponent implements OnInit {
   public caption = 'Classes';

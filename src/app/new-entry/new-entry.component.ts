@@ -4,8 +4,7 @@ import { NewEntry } from './newEntryInterface';
 
 @Component({
   selector: 'app-new-entry',
-  templateUrl: './new-entry.component.html',
-  styleUrls: ['./new-entry.component.css']
+  templateUrl: './new-entry.component.html'
 })
 export class NewEntryComponent implements OnInit {
 

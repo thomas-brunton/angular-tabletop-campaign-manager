@@ -9,9 +9,7 @@ describe('ApiSelectorService', () => {
   let service: ApiSelectorService;
   let dndService: DndApiService;
   let vtmService: VtmApiService;
-  let httpTestingController: HttpTestingController;
   let settingService: SettingsService;
-  let spy: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -20,7 +18,7 @@ describe('ApiSelectorService', () => {
     service = TestBed.inject(ApiSelectorService);
     dndService = TestBed.inject(DndApiService);
     vtmService = TestBed.inject(VtmApiService);
-    httpTestingController = TestBed.inject(HttpTestingController);
+    TestBed.inject(HttpTestingController);
     settingService = TestBed.inject(SettingsService);
   });
 
@@ -29,17 +27,17 @@ describe('ApiSelectorService', () => {
   });
 
   it('should pull dnd api', () => {
-    spy = spyOn(settingService, 'getSetting').and.returnValue('dnd');
+    spyOn(settingService, 'getSetting').and.returnValue('dnd');
     expect(service.getApi()).toBe(dndService);
   });
 
   it('should pull vtm api', () => {
-    spy = spyOn(settingService, 'getSetting').and.returnValue('vtm');
+    spyOn(settingService, 'getSetting').and.returnValue('vtm');
     expect(service.getApi()).toBe(vtmService);
   });
 
   it('should pull default api (dnd)', () => {
-    spy = spyOn(settingService, 'getSetting').and.returnValue('');
+    spyOn(settingService, 'getSetting').and.returnValue('');
     expect(service.getApi()).toBe(dndService);
   });
 

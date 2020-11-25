@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { ClassesComponent } from './classes.component';
 import { DndApiService } from '../api_services/dndapi.service';
@@ -10,7 +10,6 @@ describe('ClassesComponent', () => {
   let component: ClassesComponent;
   let dndapiService: DndApiService;
   let apiSelectorService: ApiSelectorService;
-  let spy: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -55,7 +54,7 @@ describe('ClassesComponent', () => {
   });
 
   it('should get values for the tableTopClasses variable after Angular calls ngOnInit', () => {
-    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService);
+    spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService);
     component.ngOnInit();
     let temp;
     dndapiService.getClasses()
@@ -68,7 +67,7 @@ describe('ClassesComponent', () => {
   });
 
   it('should be able to add a tableTopClass to the tableTopClasses variable', () => {
-    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService);
+    spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService);
     component.ngOnInit();
     const newClassObj = {
       index: 'test',

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {TableComponent} from './../../table.component';
 
 @Component({
   selector: 'app-table-detail-view',

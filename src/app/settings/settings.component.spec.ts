@@ -8,7 +8,6 @@ describe('SettingsComponent', () => {
   let component: SettingsComponent;
   let fixture: ComponentFixture<SettingsComponent>;
   let settingsService: SettingsService;
-  const spyList: any[] = [];
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -35,7 +34,7 @@ describe('SettingsComponent', () => {
       {position : 2, name : 'test 1', selectedValue : 'value 1', values : ['value 1', 'value 3']},
       {position : 3, name : 'test 2', selectedValue : 'value 2', values : ['value 2', 'value 4']}
     ];
-    spyList[0] = spyOn(settingsService, 'getSettings').and.returnValue(defaultSettings);
+    spyOn(settingsService, 'getSettings').and.returnValue(defaultSettings);
 
     const testSettings: SettingsInterface[] = [
       {position : 1, name : 'api', selectedValue : 'dnd', values : ['dnd', 'vtm']},
@@ -54,8 +53,8 @@ describe('SettingsComponent', () => {
       {position : 2, name : 'test 1', selectedValue : 'value 1', values : ['value 1', 'value 3']},
       {position : 3, name : 'test 2', selectedValue : 'value 2', values : ['value 2', 'value 4']}
     ];
-    spyList[0] = spyOn(settingsService, 'getSettings').and.returnValue(defaultSettings);
-    spyList[1] = spyOn(settingsService, 'setSetting').and.returnValue();
+    spyOn(settingsService, 'getSettings').and.returnValue(defaultSettings);
+    spyOn(settingsService, 'setSetting').and.returnValue();
 
     component.ngOnInit();
 
@@ -64,7 +63,7 @@ describe('SettingsComponent', () => {
   });
 
   it('should be able to get a setting', () => {
-    spyList[0] = spyOn(settingsService, 'getSetting').and.returnValue('dnd');
+    spyOn(settingsService, 'getSetting').and.returnValue('dnd');
     expect(component.getSetting('api')).toEqual('dnd');
   });
 
@@ -75,7 +74,7 @@ describe('SettingsComponent', () => {
         value: 'testValue'
       }
     };
-    spyList[0] = spyOn(settingsService, 'setSetting').and.returnValue();
+    spyOn(settingsService, 'setSetting').and.returnValue();
     spyOn(component, 'setSetting');
 
     component.settingChange($event);

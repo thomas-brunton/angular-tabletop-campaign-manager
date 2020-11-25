@@ -1,11 +1,10 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api_services/apiInterface';
 import { ApiSelectorService } from '../api_services/api-selector.service';
 
 @Component({
   selector: 'app-abilities',
-  templateUrl: './abilities.component.html',
-  styleUrls: ['./abilities.component.css']
+  templateUrl: './abilities.component.html'
 })
 export class AbilitiesComponent implements OnInit {
   public caption = 'Abilities';

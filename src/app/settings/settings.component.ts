@@ -4,8 +4,7 @@ import { SettingsInterface } from './settingsInterface';
 
 @Component({
   selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  templateUrl: './settings.component.html'
 })
 export class SettingsComponent implements OnInit {
   public settings: SettingsInterface[] = [];
