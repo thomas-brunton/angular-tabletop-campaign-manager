@@ -35,7 +35,7 @@ export class ClassesComponent implements OnInit {
     this.tableTopClasses.push(entry);
   }
 
-  deleteRow(event) {
+  deleteRow(event: string): void {
     const dataRow = JSON.parse(event);
     const index = this.tableTopClasses.findIndex(x => x['index'] === dataRow['index']);
     if (index >= 0) {

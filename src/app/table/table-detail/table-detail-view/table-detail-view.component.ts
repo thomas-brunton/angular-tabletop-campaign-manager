@@ -15,7 +15,7 @@ export class TableDetailViewComponent implements OnInit {
     this._data = value;
     this.name = this._data['name'];
   }
-  public get data(){
+  public get data(): JSON {
     return this._data;
   }
   private _headers: JSON;
@@ -25,7 +25,7 @@ export class TableDetailViewComponent implements OnInit {
 
     this._headers = value;
   }
-  public get headers(){
+  public get headers(): JSON {
     return this._headers;
   }
 
@@ -34,9 +34,7 @@ export class TableDetailViewComponent implements OnInit {
 
   public name: string;
 
-  constructor(
-    private tableComponent: TableComponent
-  ) { }
+  constructor() {}
 
   ngOnInit(): void {
   }

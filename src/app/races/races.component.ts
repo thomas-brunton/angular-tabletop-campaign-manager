@@ -38,7 +38,7 @@ export class RacesComponent implements OnInit {
     this.races.push(entry);
   }
 
-  deleteRow(event: string) {
+  deleteRow(event: string): void {
     const dataRow = JSON.parse(event);
     const index = this.races.findIndex(x => x['index'] === dataRow['index']);
     if (index >= 0) {

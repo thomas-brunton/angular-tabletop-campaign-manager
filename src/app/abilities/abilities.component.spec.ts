@@ -162,7 +162,7 @@ class MockVtmApiService {
 
   observable = new Observable<JSON[]> ((observer => {
     observer.next(this.powersArray);
-    observer.complete;
+    observer.complete();
   }));
 
   getAbilities(): Observable<JSON[]> {

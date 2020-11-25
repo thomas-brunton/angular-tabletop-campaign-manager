@@ -36,7 +36,7 @@ export class AbilitiesComponent implements OnInit {
     this.abilities.push(entry);
   }
 
-  deleteRow(event) {
+  deleteRow(event: string): void {
     const dataRow = JSON.parse(event);
     const index = this.abilities.findIndex(x => x['index'] === dataRow['index']);
     if (index >= 0) {

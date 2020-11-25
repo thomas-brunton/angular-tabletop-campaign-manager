@@ -44,7 +44,7 @@ export class NewEntryComponent implements OnInit {
 
   }
 
-  onSubmit() {
+  onSubmit(): void {
     for (const header of this.headers) {
       this.finishedEntry[header] = this.newEntryForm.controls[header].value;
     }

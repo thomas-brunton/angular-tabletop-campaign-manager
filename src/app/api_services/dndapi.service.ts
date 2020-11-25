@@ -59,7 +59,7 @@ export class DndApiService implements ApiService{
     };
   }
 
-  private log(message: string) {
+  private log(message: string): void {
     this.messageService.add(`DnDApi Service: ${message}`);
   }
 }

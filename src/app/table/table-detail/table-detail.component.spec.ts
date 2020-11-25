@@ -84,11 +84,11 @@ describe('TableDetailComponent', () => {
   it('should emit an event to delete a row', () => {
     spyOn(component.deleteRowEvent, 'emit');
 
-    component.deleteRow('test');
+    component.deleteRow(JSON.parse(JSON.stringify('{test: test}')));
 
     fixture.detectChanges();
 
-    expect(component.deleteRowEvent.emit).toHaveBeenCalledWith('test');
+    expect(component.deleteRowEvent.emit).toHaveBeenCalledWith(JSON.parse(JSON.stringify('{test: test}')));
   });
 });
 
