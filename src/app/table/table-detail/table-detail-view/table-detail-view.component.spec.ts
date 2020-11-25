@@ -49,6 +49,11 @@ describe('TableDetailViewComponent', () => {
     expect(component.headers).toEqual(JSON.parse(JSON.stringify({test: 'test'})));
   });
 
+  it('should be able to set the headers', () => {
+    component.caption = 'test';
+    expect(component.caption).toEqual('test');
+  });
+
   it('should emit an event to delete a row', () => {
     spyOn(component.deleteRowEvent, 'emit');
 

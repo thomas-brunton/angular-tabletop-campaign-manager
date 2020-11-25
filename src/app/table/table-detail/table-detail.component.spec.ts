@@ -65,6 +65,11 @@ describe('TableDetailComponent', () => {
     expect(component.url).toBe(undefined);
   });
 
+  it('should be able to set the headers', () => {
+    component.caption = 'test';
+    expect(component.caption).toEqual('test');
+  });
+
   it('should return keys data matching given url', () => {
     const testKeys = ['index', 'name', 'faction'];
     component.getDetailsData();
