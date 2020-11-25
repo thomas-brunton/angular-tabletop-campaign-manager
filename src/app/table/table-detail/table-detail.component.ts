@@ -23,6 +23,14 @@ export class TableDetailComponent implements OnInit {
   public get data(): JSON {  //  Need the getter for getting the headers in the view, the for loop for headers doesn't work otherwise
     return this._data;
   }
+  private _caption: string;
+  @Input()
+  public set caption(value) {
+    this._caption = value;
+  }
+  public get caption(): string {
+    return this._caption;
+  }
 
   @Output()
   deleteRowEvent = new EventEmitter();

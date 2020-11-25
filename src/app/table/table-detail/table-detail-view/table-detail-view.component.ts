@@ -28,6 +28,14 @@ export class TableDetailViewComponent implements OnInit {
   public get headers(): JSON {
     return this._headers;
   }
+  private _caption: string;
+  @Input()
+  public set caption(value) {
+    this._caption = value;
+  }
+  public get caption(): string {
+    return this._caption;
+  }
 
   @Output()
   deleteRowEvent = new EventEmitter();

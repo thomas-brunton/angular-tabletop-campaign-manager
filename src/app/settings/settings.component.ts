@@ -9,7 +9,6 @@ import { SettingsInterface } from './settingsInterface';
 })
 export class SettingsComponent implements OnInit {
   public settings: SettingsInterface[] = [];
-  public mostRecentSettingChange: any;
 
   constructor(private settingsService: SettingsService) { }
 
@@ -31,7 +30,6 @@ export class SettingsComponent implements OnInit {
 
   settingChange($event: any): void {
     this.setSetting($event.target.name, $event.target.value);
-    this.mostRecentSettingChange = [$event.target.name, $event.target.value];
   }
 
 }
