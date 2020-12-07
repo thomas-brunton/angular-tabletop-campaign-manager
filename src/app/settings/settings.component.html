@@ -1,10 +1,4 @@
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <p>settings works!</p>
-            <p>Most recent setting change: {{mostRecentSettingChange}}</p>
-        </div>
-    </div>
     <div class="row" *ngFor="let setting of settings">
         <label for="{{setting.name}}" class="col-sm-2 col-form-label">{{setting.name}}</label>
         <div class="col-sm-10">

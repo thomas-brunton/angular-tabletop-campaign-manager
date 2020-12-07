@@ -5,7 +5,6 @@ import { VtmApiService } from './vtmapi.service';
 
 describe('VtmapiService', () => {
   let service: VtmApiService;
-  let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -13,7 +12,7 @@ describe('VtmapiService', () => {
     });
 
     service = TestBed.inject(VtmApiService);
-    httpTestingController = TestBed.inject(HttpTestingController);
+    TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {

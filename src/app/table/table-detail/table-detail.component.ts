@@ -20,8 +20,16 @@ export class TableDetailComponent implements OnInit {
     this.setTitle(this._data);
     this.getDetailsData();
   }
-  public get data() {  //  Need the getter for getting the headers in the view, the for loop for headers doesn't work otherwise
+  public get data(): JSON {  //  Need the getter for getting the headers in the view, the for loop for headers doesn't work otherwise
     return this._data;
+  }
+  private _caption: string;
+  @Input()
+  public set caption(value) {
+    this._caption = value;
+  }
+  public get caption(): string {
+    return this._caption;
   }
 
   @Output()
@@ -63,7 +71,7 @@ export class TableDetailComponent implements OnInit {
     });
   }
 
-  deleteRow(event) {
+  deleteRow(event: JSON): void {
     this.deleteRowEvent.emit(event);
   }
 }

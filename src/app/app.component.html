@@ -1,15 +1,15 @@
 <h1>{{title}}</h1>
 <div class="wrapper">
     
-    <nav id="sidebar" [hidden]=sideBarShown>
+    <nav id="sidebar" [hidden]=sideBarShown aria-label="Website navigation links">
         <app-dashboard></app-dashboard>
     </nav>
 
     <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Dashboard toggle">
             <div class="container-fluid">
                 <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleSidebar()">
-                    <i class="fas fa-align-left"></i>
+                    <em class="fas fa-align-left"></em>
                     <span>Toggle Dashboard</span>
                 </button>
             </div>

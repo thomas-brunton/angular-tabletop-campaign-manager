@@ -1,9 +1,15 @@
 <div class="table-responsive">
     <table class="table table-striped table-bordered table-sm">
-            <th *ngFor="let header of headers" scope="col">{{header}}</th>
-            <th>Delete Button</th>
+        <caption>Details of {{name}}</caption>
+        <th 
+            *ngFor="let header of headers"
+            scope="col"
+        >
+            {{header}}
+        </th>
+        <th scope="col">Delete Button</th>
         <tbody>
-            <td *ngFor="let row of headers" style="height:100px;width:100px">
+            <td *ngFor="let row of headers" class="row-entry">
                 {{data[row]}}
             </td>
             <td>

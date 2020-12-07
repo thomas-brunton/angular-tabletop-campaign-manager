@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {TableComponent} from './../../table.component';
 
 @Component({
   selector: 'app-table-detail-view',
@@ -15,7 +14,7 @@ export class TableDetailViewComponent implements OnInit {
     this._data = value;
     this.name = this._data['name'];
   }
-  public get data(){
+  public get data(): JSON {
     return this._data;
   }
   private _headers: JSON;
@@ -25,8 +24,16 @@ export class TableDetailViewComponent implements OnInit {
 
     this._headers = value;
   }
-  public get headers(){
+  public get headers(): JSON {
     return this._headers;
+  }
+  private _caption: string;
+  @Input()
+  public set caption(value) {
+    this._caption = value;
+  }
+  public get caption(): string {
+    return this._caption;
   }
 
   @Output()
@@ -34,9 +41,7 @@ export class TableDetailViewComponent implements OnInit {
 
   public name: string;
 
-  constructor(
-    private tableComponent: TableComponent
-  ) { }
+  constructor() {}
 
   ngOnInit(): void {
   }

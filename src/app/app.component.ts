@@ -10,7 +10,7 @@ export class AppComponent {
   sideBarShown = false;
 
 
-  toggleSidebar(){
+  toggleSidebar(): void {
     this.sideBarShown = !this.sideBarShown;
   }
 }

@@ -10,7 +10,6 @@ describe('RacesComponent', () => {
   let component: RacesComponent;
   let dndapiService: DndApiService;
   let apiSelectorService: ApiSelectorService;
-  let spy: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -56,7 +55,7 @@ describe('RacesComponent', () => {
   });
 
   it('should get values for the races variable after Angular calls ngOnInit', () => {
-    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService); // Spy on the apiSelectorService and return the api service we need for the test to continue
+    spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService); // Spy on the apiSelectorService and return the api service we need for the test to continue
     component.ngOnInit();
     let temp;
     dndapiService.getRaces()
@@ -69,7 +68,7 @@ describe('RacesComponent', () => {
   });
 
   it('should be able to add a race to the races variable', () => {
-    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService); // Spy on the apiSelectorService and return the api service we need for the test to continue
+    spyOn(apiSelectorService, 'getApi').and.returnValue(dndapiService); // Spy on the apiSelectorService and return the api service we need for the test to continue
     component.ngOnInit();
     const newRaceObj = {
       index: 'test',

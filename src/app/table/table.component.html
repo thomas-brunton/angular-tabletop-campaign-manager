@@ -1,9 +1,6 @@
 <div class="container">
-    <div class="row">
-        <p>table works!</p>
-    </div>
     <table class="table table-striped table-bordered table-hover">
-        <caption>List of {{caption}}s</caption>
+        <caption>List of {{caption}}</caption>
         <thead>
             <th *ngFor="let header of headers" scope="col">{{header}}</th>
         </thead>
@@ -17,4 +14,4 @@
     </table>
 </div>
 
-<app-table-detail [data] = "selectedRow" (deleteRowEvent)="deleteRow($event)"></app-table-detail>
+<app-table-detail [caption]="caption" [data]="selectedRow" (deleteRowEvent)="deleteRow($event)"></app-table-detail>

@@ -4,12 +4,10 @@ import { SettingsInterface } from './settingsInterface';
 
 @Component({
   selector: 'app-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.css']
+  templateUrl: './settings.component.html'
 })
 export class SettingsComponent implements OnInit {
   public settings: SettingsInterface[] = [];
-  public mostRecentSettingChange: any;
 
   constructor(private settingsService: SettingsService) { }
 
@@ -31,7 +29,6 @@ export class SettingsComponent implements OnInit {
 
   settingChange($event: any): void {
     this.setSetting($event.target.name, $event.target.value);
-    this.mostRecentSettingChange = [$event.target.name, $event.target.value];
   }
 
 }

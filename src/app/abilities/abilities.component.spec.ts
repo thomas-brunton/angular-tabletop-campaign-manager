@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AbilitiesComponent } from './abilities.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import { VtmApiService } from '../api_services/vtmapi.service';
@@ -9,7 +9,6 @@ describe('AbilitiesComponent', () => {
   let component: AbilitiesComponent;
   let vtmApiService: VtmApiService;
   let apiSelectorService: ApiSelectorService;
-  let spy: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -53,7 +52,7 @@ describe('AbilitiesComponent', () => {
   });
 
   it('Should get spells once angular runs ngOnInit', () => {
-    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(vtmApiService);
+    spyOn(apiSelectorService, 'getApi').and.returnValue(vtmApiService);
     component.ngOnInit();
     let temp;
     vtmApiService.getAbilities()
@@ -66,7 +65,7 @@ describe('AbilitiesComponent', () => {
   });
 
   it('Should add an ability with corresponding data', () => {
-    spy = spyOn(apiSelectorService, 'getApi').and.returnValue(vtmApiService);
+    spyOn(apiSelectorService, 'getApi').and.returnValue(vtmApiService);
     component.ngOnInit();
     const testData =
         {
@@ -162,7 +161,7 @@ class MockVtmApiService {
 
   observable = new Observable<JSON[]> ((observer => {
     observer.next(this.powersArray);
-    observer.complete;
+    observer.complete();
   }));
 
   getAbilities(): Observable<JSON[]> {

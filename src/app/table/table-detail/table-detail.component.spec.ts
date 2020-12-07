@@ -65,6 +65,11 @@ describe('TableDetailComponent', () => {
     expect(component.url).toBe(undefined);
   });
 
+  it('should be able to set the headers', () => {
+    component.caption = 'test';
+    expect(component.caption).toEqual('test');
+  });
+
   it('should return keys data matching given url', () => {
     const testKeys = ['index', 'name', 'faction'];
     component.getDetailsData();
@@ -84,11 +89,11 @@ describe('TableDetailComponent', () => {
   it('should emit an event to delete a row', () => {
     spyOn(component.deleteRowEvent, 'emit');
 
-    component.deleteRow('test');
+    component.deleteRow(JSON.parse(JSON.stringify('{test: test}')));
 
     fixture.detectChanges();
 
-    expect(component.deleteRowEvent.emit).toHaveBeenCalledWith('test');
+    expect(component.deleteRowEvent.emit).toHaveBeenCalledWith(JSON.parse(JSON.stringify('{test: test}')));
   });
 });
 
@@ -105,7 +110,7 @@ class MockVtmApiService{
 
   observable = new Observable<JSON[]> ((observer => {
     observer.next(this.testArray);
-    observer.complete;
+    observer.complete();
   }));
 
   getDetails(url): Observable<JSON[]> {

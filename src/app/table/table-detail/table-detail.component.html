@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <app-table-detail-view [data]="details" [headers]= "headers" (deleteRowEvent)="deleteRow($event)"></app-table-detail-view>
+                <app-table-detail-view [caption]="caption" [data]="details" [headers]="headers" (deleteRowEvent)="deleteRow($event)"></app-table-detail-view>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { MessageService } from '../message.service';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import {ApiService} from './apiInterface';
 
 @Injectable({
@@ -55,11 +55,11 @@ export class DndApiService implements ApiService{
       this.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
-      return of(result as T);
+      return of(result);
     };
   }
 
-  private log(message: string) {
+  private log(message: string): void {
     this.messageService.add(`DnDApi Service: ${message}`);
   }
 }
