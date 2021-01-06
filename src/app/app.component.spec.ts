@@ -24,10 +24,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-dnd-campaign-manager'`, () => {
+  it(`should have as title Leomund\'s Tiny Forge`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-dnd-campaign-manager');
+    expect(app.title).toEqual('Leomund\'s Tiny Forge');
   });
 
   it('should toggle when function is activated', () => {

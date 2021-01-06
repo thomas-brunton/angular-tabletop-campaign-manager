@@ -16,10 +16,11 @@ describe('LayoutService', () => {
 
   it('should create a layout', () => {
     const testLayout = [
-      {position : 1, name : 'Race', route : 'races'},
-      {position : 2, name : 'Spells', route : 'abilities'},
-      {position : 3, name : 'Classes', route : 'classes'},
-      {position : 4, name : 'Settings', route : 'settings'}
+      {position : 1, name : 'Home', route : 'home'},
+      {position : 2, name : 'Race', route : 'races'},
+      {position : 3, name : 'Spells', route : 'abilities'},
+      {position : 4, name : 'Classes', route : 'classes'},
+      {position : 5, name : 'Settings', route : 'settings'}
     ];
 
     expect(service.getLayout()).toEqual(testLayout);
