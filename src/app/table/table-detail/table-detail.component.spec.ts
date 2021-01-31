@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TableDetailComponent } from './table-detail.component';
-import {VtmApiService} from '../../api_services/vtmapi.service';
+import {VtmApiService} from '../../services/api_services/vtmapi.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import { Observable } from 'rxjs';
-import { ApiSelectorService } from 'src/app/api_services/api-selector.service';
+import { ApiSelectorService } from 'src/app/services/api_services/api-selector.service';
 
 const testData = {
   index : 'brujah',

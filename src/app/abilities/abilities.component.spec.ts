@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { AbilitiesComponent } from './abilities.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import { VtmApiService } from '../api_services/vtmapi.service';
+import { VtmApiService } from '../services/api_services/vtmapi.service';
 import { Observable } from 'rxjs';
-import { ApiSelectorService } from '../api_services/api-selector.service';
+import { ApiSelectorService } from '../services/api_services/api-selector.service';
 
 describe('AbilitiesComponent', () => {
   let component: AbilitiesComponent;

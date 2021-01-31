@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ClassesComponent } from './classes.component';
-import { DndApiService } from '../api_services/dndapi.service';
+import { DndApiService } from '../services/api_services/dndapi.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Observable } from 'rxjs';
-import { ApiSelectorService } from '../api_services/api-selector.service';
+import { ApiSelectorService } from '../services/api_services/api-selector.service';
 
 describe('ClassesComponent', () => {
   let component: ClassesComponent;

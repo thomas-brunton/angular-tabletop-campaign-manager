@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './apiInterface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { MessageService } from '../message.service';
+import { MessageService } from '../../message.service';
 
 
 @Injectable({

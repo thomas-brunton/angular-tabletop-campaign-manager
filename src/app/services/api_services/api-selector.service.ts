@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './apiInterface';
 import { DndApiService } from './dndapi.service';
 import { VtmApiService } from './vtmapi.service';
-import { SettingsService } from '../settings/settings.service';
+import { SettingsService } from '../settings.service';
 
 @Injectable({
   providedIn: 'root'

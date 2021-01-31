@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { SettingsInterface } from './settingsInterface';
-import { SettingsLayout } from './settingsLayout';
+import { SettingsInterface } from '../settings/settingsInterface';
+import { SettingsLayout } from '../settings/settingsLayout';
 
 @Injectable({
   providedIn: 'root'

@@ -3,7 +3,7 @@ import { ApiSelectorService } from './api-selector.service';
 import { DndApiService } from './dndapi.service';
 import { VtmApiService } from './vtmapi.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { SettingsService } from '../settings/settings.service';
+import { SettingsService } from '../settings.service';
 
 describe('ApiSelectorService', () => {
   let service: ApiSelectorService;

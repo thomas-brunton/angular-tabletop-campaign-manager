@@ -16,7 +16,7 @@ import { NewEntryComponent } from './new-entry/new-entry.component';
 import { AbilitiesComponent } from './abilities/abilities.component';
 import { ClassesComponent } from './classes/classes.component';
 import { SettingsComponent } from './settings/settings.component';
-import { SettingsService } from './settings/settings.service';
+import { SettingsService } from './services/settings.service';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({

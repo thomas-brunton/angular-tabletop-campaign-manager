@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api_services/apiInterface';
-import { ApiSelectorService } from '../api_services/api-selector.service';
+import { ApiService } from '../services/api_services/apiInterface';
+import { ApiSelectorService } from '../services/api_services/api-selector.service';
 
 @Component({
   selector: 'app-classes',

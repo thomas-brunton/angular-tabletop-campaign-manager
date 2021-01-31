@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SettingsComponent } from './settings.component';
-import { SettingsService } from './settings.service';
+import { SettingsService } from '../services/settings.service';
 import { SettingsInterface } from './settingsInterface';
 
 describe('SettingsComponent', () => {

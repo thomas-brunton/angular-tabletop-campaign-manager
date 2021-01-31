@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { SettingsService } from './settings.service';
-import { SettingsInterface } from './settingsInterface';
+import { SettingsInterface } from '../settings/settingsInterface';
 
 describe('SettingsService', () => {
   let service: SettingsService;
