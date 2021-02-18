@@ -38,7 +38,7 @@ export class VtmApiService implements ApiService{
     );
   }
 
-    /**
+  /**
    * Handle Http operation that failed.
    * Let the app continue.
    * @param operation - name of the operation that failed

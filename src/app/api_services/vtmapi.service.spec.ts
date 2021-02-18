@@ -122,7 +122,7 @@ describe('VtmapiService', () => {
     });
   });
 
-  it('can test for network error', () =>{
+  it('can test for network error', () => {
     const emsg = 'simulated network error';
 
     service.getRaces().subscribe(
