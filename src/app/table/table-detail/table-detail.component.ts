@@ -4,8 +4,7 @@ import { ApiSelectorService } from '../../api_services/api-selector.service';
 
 @Component({
   selector: 'app-table-detail',
-  templateUrl: './table-detail.component.html',
-  styleUrls: ['./table-detail.component.css']
+  templateUrl: './table-detail.component.html'
 })
 export class TableDetailComponent implements OnInit {
 
