@@ -5,6 +5,7 @@ import { VtmApiService } from './vtmapi.service';
 
 describe('VtmapiService', () => {
   let service: VtmApiService;
+  let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -12,7 +13,7 @@ describe('VtmapiService', () => {
     });
 
     service = TestBed.inject(VtmApiService);
-    TestBed.inject(HttpTestingController);
+    httpTestingController = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {
@@ -60,6 +61,17 @@ describe('VtmapiService', () => {
       expect(racesData?.results[0].name).toBe(testData.results[0].name);
       expect(racesData?.results[0].url).toBe(testData.results[0].url);
     });
+    const req = httpTestingController.expectOne('/assets/vtm_5e_api/clans/clans.json');
+
+    // Assert that the request is a GET.
+    expect(req.request.method).toEqual('GET');
+
+    // Response with mock data, causing Observable to resolve.
+    // Subscribe callback asserts that correct data was returned.
+    req.flush(testData);
+
+    // Finally, assert that there are no outstanding requests.
+    httpTestingController.verify();
 
   });
 
@@ -81,6 +93,17 @@ describe('VtmapiService', () => {
       expect(abilitiesData.results[0].name).toBe(testData.results[0].name);
       expect(abilitiesData.results[0].url).toBe(testData.results[0].url);
     });
+    const req = httpTestingController.expectOne('/assets/vtm_5e_api/powers/powers.json');
+
+    // Assert that the request is a GET.
+    expect(req.request.method).toEqual('GET');
+
+    // Response with mock data, causing Observable to resolve.
+    // Subscribe callback asserts that correct data was returned.
+    req.flush(testData);
+
+    // Finally, assert that there are no outstanding requests.
+    httpTestingController.verify();
   });
 
   it('should return details', () => {
@@ -97,5 +120,30 @@ describe('VtmapiService', () => {
       expect(detailsData?.name).toBe(testData.name);
       expect(detailsData?.faction).toBe(testData.faction);
     });
+  });
+
+  it('can test for network error', () => {
+    const emsg = 'simulated network error';
+
+    service.getRaces().subscribe(
+      data => {
+        expect(data).toBeUndefined();
+      },
+      // Shouldn't be used since if there is a network error an empty result is passed from the dndapiservice handleError method
+      // so it gets handled by the about case with the data variable
+      error => {
+        expect(error).toEqual(undefined);
+      }
+    );
+    const req = httpTestingController.expectOne('/assets/vtm_5e_api/clans/clans.json');
+
+    // Create mock ErrorEvent, raised when something goes wrong at the network level.
+    // Connection timeout, DNS error, offline, etc
+    const mockError = new ErrorEvent('Network error', {
+      message: emsg,
+    });
+
+    // Respond with mock error
+    req.error(mockError);
   });
 });
